@@ -13,13 +13,19 @@ export function Hero() {
     target: heroRef,
     offset: ["start start", "end start"],
   });
-  const imageY = useTransform(scrollYProgress, [0, 1], [0, reduceMotion ? 0 : -30]);
   const mountainY = useTransform(scrollYProgress, [0, 1], [0, reduceMotion ? 0 : -15]);
 
   return (
     <section ref={heroRef} className="hero-section relative min-h-[100svh] overflow-hidden pb-12 pt-24 md:min-h-[92vh] md:pb-20 md:pt-28">
+      <motion.div
+        className="hero-photo-backdrop"
+        aria-hidden="true"
+        initial={{ scale: 1.03 }}
+        animate={{ scale: 1 }}
+        transition={{ duration: 1.4, delay: 0.15, ease }}
+      />
       <AnimatedMountainLines
-        className="hero-landscape absolute left-1/2 top-[8%] z-0 h-[82%] w-[132vw] max-w-none -translate-x-1/2"
+        className="hero-landscape absolute left-1/2 top-[6%] z-[2] h-[86%] w-[138vw] max-w-none -translate-x-1/2"
         style={{ y: mountainY }}
       />
       <motion.div
@@ -36,12 +42,12 @@ export function Hero() {
         animate={{ opacity: 1 }}
         transition={{ duration: 1.1, delay: 1.2, ease }}
       />
-      <div className="relative z-10 mx-auto grid min-h-[calc(100svh-6rem)] max-w-[1440px] items-start gap-8 px-5 pt-9 md:min-h-[calc(92vh-7rem)] md:items-center md:gap-12 md:px-8 md:pt-0 lg:grid-cols-[0.9fr_1.1fr] lg:gap-14 lg:px-12">
+      <div className="relative z-10 mx-auto grid min-h-[calc(100svh-6rem)] max-w-[1440px] items-start px-5 pt-9 md:min-h-[calc(92vh-7rem)] md:items-center md:px-8 md:pt-0 lg:px-12">
         <motion.div
           variants={staggerContainer}
           initial="hidden"
           animate="visible"
-          className="relative z-20 max-w-[600px] pt-7"
+          className="relative z-20 max-w-[690px] pt-7"
         >
           <motion.p variants={fadeUp} className="mb-6 text-[0.68rem] font-bold uppercase tracking-[0.38em] text-[var(--gold)]">
             Horseback. Nature. Stillness.
@@ -66,27 +72,6 @@ export function Hero() {
           <motion.p variants={fadeUp} className="mt-6 text-sm text-[var(--muted)]">
             Private trails <span className="text-[var(--gold)]">•</span> Gentle horses <span className="text-[var(--gold)]">•</span> Beginner-friendly experiences
           </motion.p>
-        </motion.div>
-
-        <motion.div
-          className="relative z-10 min-h-[430px] max-md:pointer-events-none max-md:absolute max-md:inset-x-[-3rem] max-md:bottom-[-1.5rem] max-md:z-0 max-md:h-[58svh] max-md:min-h-0 md:min-h-[560px] lg:min-h-[650px]"
-          initial={{ opacity: 0, scale: 1.04 }}
-          animate={{ opacity: 1, scale: 1 }}
-          transition={{ duration: 1.2, delay: 0.35, ease }}
-          style={{ y: imageY }}
-        >
-          <div className="hero-photo hero-photo-soft absolute inset-0 z-10 overflow-hidden bg-transparent">
-            <div className="hero-image-layer absolute inset-0 bg-[url('/images/ranch-pasture-horse.png')] bg-cover bg-center opacity-100 max-md:bg-[position:60%_48%] lg:bg-[position:center]" />
-            <div className="horse-fallback absolute inset-0" />
-            <div className="hero-photo-vignette absolute inset-0" />
-          </div>
-          <motion.div
-            className="hero-orbit-line"
-            aria-hidden="true"
-            initial={{ opacity: 0, scale: 0.96 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 1.4, delay: 2.1, ease }}
-          />
         </motion.div>
       </div>
       <div className="hero-scroll-indicator" aria-hidden="true" />
