@@ -1,8 +1,8 @@
 @import "tailwindcss";
 
 :root {
-  --bg: #17241f;
-  --bg-warm: #24352d;
+  --bg: #22352e;
+  --bg-warm: #34483f;
   --text: #fff7ea;
   --muted: #d8cab4;
   --green: #213f34;
@@ -30,7 +30,7 @@ body {
   background:
     radial-gradient(circle at 12% 4%, rgba(212, 170, 85, 0.18), transparent 28rem),
     radial-gradient(circle at 86% 16%, rgba(97, 147, 116, 0.24), transparent 32rem),
-    linear-gradient(180deg, #182822 0%, #27382f 46%, #17231f 100%);
+    linear-gradient(180deg, #263a33 0%, #3a4d43 46%, #24362f 100%);
   color: var(--text);
   font-family: var(--font-sans), ui-sans-serif, system-ui, sans-serif;
   -webkit-font-smoothing: antialiased;
@@ -104,7 +104,7 @@ a {
 
 header {
   border-color: rgba(210, 177, 99, 0.18) !important;
-  background: rgba(24, 40, 34, 0.82) !important;
+  background: rgba(33, 54, 46, 0.84) !important;
   box-shadow: 0 14px 44px rgba(0, 0, 0, 0.26);
 }
 
@@ -121,7 +121,7 @@ header {
   background:
     radial-gradient(circle at 72% 30%, rgba(212, 170, 85, 0.18), transparent 30rem),
     radial-gradient(circle at 50% 96%, rgba(101, 151, 120, 0.22), transparent 26rem),
-    linear-gradient(180deg, rgba(24, 40, 34, 0.86) 0%, rgba(40, 57, 49, 0.74) 62%, rgba(27, 40, 35, 0.84) 100%);
+    linear-gradient(180deg, rgba(39, 61, 52, 0.78) 0%, rgba(54, 75, 65, 0.62) 62%, rgba(38, 55, 48, 0.74) 100%);
 }
 
 .animated-mountain-lines {
@@ -370,11 +370,11 @@ header {
 
 .hero-photo [style],
 .hero-photo .bg-cover {
-  filter: grayscale(0.92) contrast(1.02) brightness(1.08);
+  filter: saturate(1.02) contrast(1.01) brightness(1.05);
 }
 
 .image-node > [style] {
-  filter: grayscale(0.82) contrast(1.04) brightness(1.02);
+  filter: saturate(1.04) contrast(1.01) brightness(1.03);
 }
 
 .portrait-fallback {
@@ -443,7 +443,7 @@ main > section::before {
 #lessons-and-training,
 #journal {
   background:
-    linear-gradient(180deg, rgba(31, 52, 44, 0.78), rgba(39, 57, 49, 0.7)) !important;
+    linear-gradient(180deg, rgba(47, 71, 62, 0.74), rgba(55, 76, 66, 0.64)) !important;
 }
 
 #booking {
@@ -486,7 +486,8 @@ main > section::before {
   box-shadow:
     inset 0 0 0 1px rgba(255, 255, 255, 0.05),
     0 16px 46px rgba(0, 0, 0, 0.22);
-  border-radius: 0.95rem;
+  border-radius: 1.1rem;
+  min-height: 320px;
 }
 
 .image-node-photo {
@@ -516,7 +517,7 @@ main > section::before {
   inset: 0;
   z-index: 2;
   background:
-    linear-gradient(180deg, rgba(24, 40, 34, 0.02), rgba(24, 40, 34, 0.14) 58%, rgba(24, 40, 34, 0.22)),
+    linear-gradient(180deg, rgba(24, 40, 34, 0), rgba(24, 40, 34, 0.04) 58%, rgba(24, 40, 34, 0.08)),
     radial-gradient(circle at 78% 18%, rgba(212, 170, 85, 0.14), transparent 30%);
 }
 
@@ -528,22 +529,10 @@ main > section::before {
   opacity: 0.6;
 }
 
-.image-node-index {
-  position: absolute;
-  right: 1rem;
-  top: 1rem;
-  z-index: 4;
-  height: 0.55rem;
-  width: 0.55rem;
-  border-radius: 999px;
-  background: var(--gold);
-  box-shadow: 0 0 22px rgba(212, 170, 85, 0.42);
-}
-
 .gallery-section {
   background:
-    radial-gradient(circle at 18% 20%, rgba(212, 170, 85, 0.1), transparent 24rem),
-    linear-gradient(180deg, rgba(37, 58, 49, 0.72), rgba(31, 49, 42, 0.56));
+    radial-gradient(circle at 18% 20%, rgba(212, 170, 85, 0.14), transparent 24rem),
+    linear-gradient(180deg, rgba(56, 80, 68, 0.7), rgba(45, 68, 58, 0.54));
 }
 
 #booking::before {

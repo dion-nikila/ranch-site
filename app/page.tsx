@@ -21,12 +21,12 @@ export default function Home() {
       <Navbar />
       <main className="relative z-10">
         <Hero />
+        <BookingBar />
         <section id="ranch-gallery" className="gallery-section px-5 py-14 md:px-8 md:py-20">
           <div className="mx-auto max-w-[1180px]">
             <ImageConstellation />
           </div>
         </section>
-        <BookingBar />
         <ServicesGrid />
         <PackageCards />
         <BoardingSection />

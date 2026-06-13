@@ -75,8 +75,8 @@ export function Hero() {
           transition={{ duration: 1.2, delay: 0.35, ease }}
           style={{ y: imageY }}
         >
-          <div className="hero-photo hero-photo-soft absolute inset-0 z-10 overflow-hidden bg-transparent grayscale">
-            <div className="hero-image-layer absolute inset-0 bg-[url('/images/horse-hero-editorial.png')] bg-cover bg-center opacity-100 max-md:bg-[position:62%_44%] lg:bg-[position:center]" />
+          <div className="hero-photo hero-photo-soft absolute inset-0 z-10 overflow-hidden bg-transparent">
+            <div className="hero-image-layer absolute inset-0 bg-[url('/images/ranch-pasture-horse.png')] bg-cover bg-center opacity-100 max-md:bg-[position:60%_48%] lg:bg-[position:center]" />
             <div className="horse-fallback absolute inset-0" />
             <div className="hero-photo-vignette absolute inset-0" />
           </div>

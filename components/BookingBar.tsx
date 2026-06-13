@@ -17,7 +17,7 @@ export function BookingBar() {
       initial={{ opacity: 0, y: 32 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, amount: 0.4 }}
-      transition={{ duration: 0.9, delay: 2.8, ease }}
+      transition={{ duration: 0.7, ease }}
     >
       <div className="booking-shell rounded-[1.15rem] border border-white/10 bg-[var(--green)] p-3 text-white shadow-[0_24px_70px_rgba(24,56,45,0.16)] md:p-4">
         <motion.div variants={staggerContainer} initial="hidden" whileInView="visible" viewport={{ once: true }} className="grid gap-3 lg:grid-cols-[1fr_1fr_1fr_auto]">
