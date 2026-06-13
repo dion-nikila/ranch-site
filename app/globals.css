@@ -1,14 +1,14 @@
 @import "tailwindcss";
 
 :root {
-  --bg: #08100e;
-  --bg-warm: #101c18;
-  --text: #f7efe1;
-  --muted: #b7ad9a;
-  --green: #142f27;
-  --gold: #d2b163;
-  --border: rgba(210, 177, 99, 0.24);
-  --card: rgba(12, 24, 21, 0.76);
+  --bg: #17241f;
+  --bg-warm: #24352d;
+  --text: #fff7ea;
+  --muted: #d8cab4;
+  --green: #213f34;
+  --gold: #d4aa55;
+  --border: rgba(222, 190, 118, 0.3);
+  --card: rgba(31, 52, 44, 0.74);
 }
 
 @theme inline {
@@ -28,9 +28,9 @@ html {
 body {
   margin: 0;
   background:
-    radial-gradient(circle at 12% 4%, rgba(210, 177, 99, 0.12), transparent 28rem),
-    radial-gradient(circle at 86% 16%, rgba(69, 120, 96, 0.18), transparent 32rem),
-    linear-gradient(180deg, #07100e 0%, #101b17 46%, #070d0c 100%);
+    radial-gradient(circle at 12% 4%, rgba(212, 170, 85, 0.18), transparent 28rem),
+    radial-gradient(circle at 86% 16%, rgba(97, 147, 116, 0.24), transparent 32rem),
+    linear-gradient(180deg, #182822 0%, #27382f 46%, #17231f 100%);
   color: var(--text);
   font-family: var(--font-sans), ui-sans-serif, system-ui, sans-serif;
   -webkit-font-smoothing: antialiased;
@@ -104,13 +104,13 @@ a {
 
 header {
   border-color: rgba(210, 177, 99, 0.18) !important;
-  background: rgba(7, 14, 12, 0.82) !important;
+  background: rgba(24, 40, 34, 0.82) !important;
   box-shadow: 0 14px 44px rgba(0, 0, 0, 0.26);
 }
 
 .site-line-field {
   z-index: 0;
-  opacity: 0.34;
+  opacity: 0.22;
   color: rgba(210, 177, 99, 0.9);
   transform: scale(1.28);
   transform-origin: center;
@@ -119,9 +119,9 @@ header {
 
 .hero-section {
   background:
-    radial-gradient(circle at 72% 30%, rgba(210, 177, 99, 0.16), transparent 30rem),
-    radial-gradient(circle at 50% 96%, rgba(69, 120, 96, 0.18), transparent 26rem),
-    linear-gradient(180deg, rgba(7, 14, 12, 0.94) 0%, rgba(13, 25, 22, 0.82) 62%, rgba(9, 16, 14, 0.88) 100%);
+    radial-gradient(circle at 72% 30%, rgba(212, 170, 85, 0.18), transparent 30rem),
+    radial-gradient(circle at 50% 96%, rgba(101, 151, 120, 0.22), transparent 26rem),
+    linear-gradient(180deg, rgba(24, 40, 34, 0.86) 0%, rgba(40, 57, 49, 0.74) 62%, rgba(27, 40, 35, 0.84) 100%);
 }
 
 .animated-mountain-lines {
@@ -184,12 +184,12 @@ header {
 
 .hero-photo-soft {
   mask-image:
-    linear-gradient(90deg, transparent 0%, black 12%, black 88%, transparent 100%),
-    linear-gradient(180deg, transparent 0%, black 10%, black 88%, transparent 100%);
+    linear-gradient(90deg, transparent 0%, black 5%, black 96%, transparent 100%),
+    linear-gradient(180deg, transparent 0%, black 5%, black 96%, transparent 100%);
   mask-composite: intersect;
   -webkit-mask-image:
-    linear-gradient(90deg, transparent 0%, black 12%, black 88%, transparent 100%),
-    linear-gradient(180deg, transparent 0%, black 10%, black 88%, transparent 100%);
+    linear-gradient(90deg, transparent 0%, black 5%, black 96%, transparent 100%),
+    linear-gradient(180deg, transparent 0%, black 5%, black 96%, transparent 100%);
   -webkit-mask-composite: source-in;
 }
 
@@ -200,8 +200,8 @@ header {
   z-index: 20;
   pointer-events: none;
   background:
-    linear-gradient(90deg, rgba(8, 16, 14, 0.78) 0%, rgba(8, 16, 14, 0.16) 14%, rgba(8, 16, 14, 0) 38%, rgba(8, 16, 14, 0.18) 78%, rgba(8, 16, 14, 0.84) 100%),
-    linear-gradient(180deg, rgba(8, 16, 14, 0.74) 0%, rgba(8, 16, 14, 0) 18%, rgba(8, 16, 14, 0) 70%, rgba(8, 16, 14, 0.86) 100%);
+    linear-gradient(90deg, rgba(24, 40, 34, 0.32) 0%, rgba(24, 40, 34, 0.04) 18%, rgba(24, 40, 34, 0) 78%, rgba(24, 40, 34, 0.34) 100%),
+    linear-gradient(180deg, rgba(24, 40, 34, 0.24) 0%, rgba(24, 40, 34, 0) 20%, rgba(24, 40, 34, 0) 76%, rgba(24, 40, 34, 0.34) 100%);
 }
 
 .hero-image-layer {
@@ -211,8 +211,7 @@ header {
 
 .hero-photo-vignette {
   background:
-    radial-gradient(ellipse at center, rgba(210, 177, 99, 0.08) 0%, rgba(8, 16, 14, 0) 48%, rgba(8, 16, 14, 0.62) 100%),
-    linear-gradient(135deg, rgba(210, 177, 99, 0.08), rgba(69, 120, 96, 0.14));
+    radial-gradient(ellipse at center, rgba(212, 170, 85, 0.05) 0%, rgba(24, 40, 34, 0) 62%, rgba(24, 40, 34, 0.18) 100%);
 }
 
 .hero-orbit-line {
@@ -288,26 +287,26 @@ header {
 
 @media (max-width: 767px) {
   .animated-mountain-lines {
-    opacity: 0.88;
+    opacity: 0.62;
   }
 
   .hero-photo-soft {
     mask-image:
-      linear-gradient(90deg, transparent 0%, black 3%, black 97%, transparent 100%),
-      linear-gradient(180deg, transparent 0%, black 3%, black 97%, transparent 100%);
+      linear-gradient(90deg, transparent 0%, black 2%, black 98%, transparent 100%),
+      linear-gradient(180deg, transparent 0%, black 2%, black 98%, transparent 100%);
     -webkit-mask-image:
-      linear-gradient(90deg, transparent 0%, black 3%, black 97%, transparent 100%),
-      linear-gradient(180deg, transparent 0%, black 3%, black 97%, transparent 100%);
+      linear-gradient(90deg, transparent 0%, black 2%, black 98%, transparent 100%),
+      linear-gradient(180deg, transparent 0%, black 2%, black 98%, transparent 100%);
   }
 
   .hero-photo-soft::after {
     background:
-      linear-gradient(90deg, rgba(250, 248, 243, 0.18) 0%, rgba(250, 248, 243, 0) 18%, rgba(250, 248, 243, 0) 82%, rgba(250, 248, 243, 0.14) 100%),
-      linear-gradient(180deg, rgba(250, 248, 243, 0.12) 0%, rgba(250, 248, 243, 0) 18%, rgba(250, 248, 243, 0) 82%, rgba(250, 248, 243, 0.24) 100%);
+      linear-gradient(90deg, rgba(24, 40, 34, 0.12) 0%, rgba(24, 40, 34, 0) 18%, rgba(24, 40, 34, 0) 82%, rgba(24, 40, 34, 0.1) 100%),
+      linear-gradient(180deg, rgba(24, 40, 34, 0.08) 0%, rgba(24, 40, 34, 0) 18%, rgba(24, 40, 34, 0) 84%, rgba(24, 40, 34, 0.12) 100%);
   }
 
   .hero-photo-vignette {
-    background: radial-gradient(ellipse at center, rgba(250, 248, 243, 0) 64%, rgba(250, 248, 243, 0.1) 100%);
+    background: radial-gradient(ellipse at center, rgba(212, 170, 85, 0.04) 0%, rgba(24, 40, 34, 0) 72%, rgba(24, 40, 34, 0.08) 100%);
   }
 }
 
@@ -371,11 +370,11 @@ header {
 
 .hero-photo [style],
 .hero-photo .bg-cover {
-  filter: grayscale(1) contrast(1.08) brightness(0.78);
+  filter: grayscale(0.92) contrast(1.02) brightness(1.08);
 }
 
 .image-node > [style] {
-  filter: grayscale(1) contrast(1.14) brightness(0.78);
+  filter: grayscale(0.82) contrast(1.04) brightness(1.02);
 }
 
 .portrait-fallback {
@@ -444,7 +443,7 @@ main > section::before {
 #lessons-and-training,
 #journal {
   background:
-    linear-gradient(180deg, rgba(8, 16, 14, 0.72), rgba(15, 27, 23, 0.66)) !important;
+    linear-gradient(180deg, rgba(31, 52, 44, 0.78), rgba(39, 57, 49, 0.7)) !important;
 }
 
 #booking {
@@ -457,8 +456,8 @@ main > section::before {
 #resources article {
   border-color: var(--border) !important;
   background:
-    linear-gradient(180deg, rgba(255, 255, 255, 0.035), transparent 40%),
-    rgba(10, 22, 19, 0.72) !important;
+    linear-gradient(180deg, rgba(255, 255, 255, 0.055), transparent 42%),
+    rgba(34, 55, 47, 0.7) !important;
   box-shadow:
     inset 0 1px 0 rgba(255, 255, 255, 0.06),
     0 18px 52px rgba(0, 0, 0, 0.22);
@@ -475,15 +474,19 @@ main > section::before {
 }
 
 .image-constellation {
-  perspective: 1200px;
+  display: grid;
+  gap: 1.25rem;
+}
+
+.image-constellation-copy {
+  max-width: 720px;
 }
 
 .image-node {
   box-shadow:
-    inset 0 0 0 1px rgba(255, 255, 255, 0.035),
-    0 0 0 1px rgba(210, 177, 99, 0.08),
-    0 22px 70px rgba(0, 0, 0, 0.34);
-  clip-path: polygon(0 0, calc(100% - 18px) 0, 100% 18px, 100% 100%, 18px 100%, 0 calc(100% - 18px));
+    inset 0 0 0 1px rgba(255, 255, 255, 0.05),
+    0 16px 46px rgba(0, 0, 0, 0.22);
+  border-radius: 0.95rem;
 }
 
 .image-node-photo {
@@ -513,34 +516,34 @@ main > section::before {
   inset: 0;
   z-index: 2;
   background:
-    linear-gradient(180deg, rgba(8, 16, 14, 0.04), rgba(8, 16, 14, 0.28) 46%, rgba(8, 16, 14, 0.86)),
-    radial-gradient(circle at 78% 18%, rgba(210, 177, 99, 0.24), transparent 28%);
+    linear-gradient(180deg, rgba(24, 40, 34, 0.02), rgba(24, 40, 34, 0.14) 58%, rgba(24, 40, 34, 0.22)),
+    radial-gradient(circle at 78% 18%, rgba(212, 170, 85, 0.14), transparent 30%);
 }
 
 .image-node::after {
-  inset: 14px;
+  inset: 10px;
   z-index: 3;
-  border: 1px solid rgba(210, 177, 99, 0.22);
-  opacity: 0.72;
+  border: 1px solid rgba(255, 247, 234, 0.18);
+  border-radius: 0.7rem;
+  opacity: 0.6;
 }
 
-.image-node-scan {
+.image-node-index {
+  position: absolute;
+  right: 1rem;
+  top: 1rem;
   z-index: 4;
-  background:
-    repeating-linear-gradient(180deg, rgba(210, 177, 99, 0.09) 0 1px, transparent 1px 9px),
-    linear-gradient(90deg, transparent, rgba(210, 177, 99, 0.12), transparent);
-  mix-blend-mode: screen;
-  opacity: 0.42;
-  animation: scanTravel 5.5s linear infinite;
+  height: 0.55rem;
+  width: 0.55rem;
+  border-radius: 999px;
+  background: var(--gold);
+  box-shadow: 0 0 22px rgba(212, 170, 85, 0.42);
 }
 
-@keyframes scanTravel {
-  from {
-    transform: translateY(-14px);
-  }
-  to {
-    transform: translateY(14px);
-  }
+.gallery-section {
+  background:
+    radial-gradient(circle at 18% 20%, rgba(212, 170, 85, 0.1), transparent 24rem),
+    linear-gradient(180deg, rgba(37, 58, 49, 0.72), rgba(31, 49, 42, 0.56));
 }
 
 #booking::before {
@@ -586,7 +589,7 @@ main > section::before {
     left: 48%;
     width: 178vw;
     height: 64%;
-    opacity: 1;
+    opacity: 0.7;
   }
 
   .hero-photo {
@@ -599,17 +602,17 @@ main > section::before {
 
   .hero-photo-soft {
     mask-image:
-      linear-gradient(90deg, transparent 0%, black 10%, black 92%, transparent 100%),
-      linear-gradient(180deg, transparent 0%, black 18%, black 74%, transparent 100%);
+      linear-gradient(90deg, transparent 0%, black 2%, black 98%, transparent 100%),
+      linear-gradient(180deg, transparent 0%, black 2%, black 96%, transparent 100%);
     -webkit-mask-image:
-      linear-gradient(90deg, transparent 0%, black 10%, black 92%, transparent 100%),
-      linear-gradient(180deg, transparent 0%, black 18%, black 74%, transparent 100%);
+      linear-gradient(90deg, transparent 0%, black 2%, black 98%, transparent 100%),
+      linear-gradient(180deg, transparent 0%, black 2%, black 96%, transparent 100%);
   }
 
   .hero-photo-soft::after {
     background:
-      linear-gradient(180deg, var(--bg) 0%, rgba(8, 16, 14, 0.12) 22%, rgba(8, 16, 14, 0) 48%, var(--bg) 100%),
-      linear-gradient(90deg, var(--bg) 0%, rgba(8, 16, 14, 0) 28%, rgba(8, 16, 14, 0.12) 72%, var(--bg) 100%);
+      linear-gradient(180deg, rgba(24, 40, 34, 0.14) 0%, rgba(24, 40, 34, 0) 24%, rgba(24, 40, 34, 0) 80%, rgba(24, 40, 34, 0.16) 100%),
+      linear-gradient(90deg, rgba(24, 40, 34, 0.12) 0%, rgba(24, 40, 34, 0) 26%, rgba(24, 40, 34, 0) 78%, rgba(24, 40, 34, 0.12) 100%);
   }
 
   .hero-image-layer {

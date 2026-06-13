@@ -4,6 +4,7 @@ import { AnimatedMountainLines } from "@/components/AnimatedMountainLines";
 import { FinalCTA } from "@/components/FinalCTA";
 import { Footer } from "@/components/Footer";
 import { Hero } from "@/components/Hero";
+import { ImageConstellation } from "@/components/ImageConstellation";
 import { MobileStickyBookButton } from "@/components/MobileStickyBookButton";
 import { Navbar } from "@/components/Navbar";
 import { PackageCards } from "@/components/PackageCards";
@@ -20,6 +21,11 @@ export default function Home() {
       <Navbar />
       <main className="relative z-10">
         <Hero />
+        <section id="ranch-gallery" className="gallery-section px-5 py-14 md:px-8 md:py-20">
+          <div className="mx-auto max-w-[1180px]">
+            <ImageConstellation />
+          </div>
+        </section>
         <BookingBar />
         <ServicesGrid />
         <PackageCards />

@@ -2,7 +2,6 @@
 
 import { motion } from "motion/react";
 import { AnimatedMountainLines } from "./AnimatedMountainLines";
-import { ImageConstellation } from "./ImageConstellation";
 import { ease, fadeUp, staggerContainer } from "./motion";
 
 export function RanchStory() {
@@ -37,9 +36,6 @@ export function RanchStory() {
             Private trails, small groups, and a pace set by the horse.
           </p>
         </motion.div>
-      </div>
-      <div className="relative z-10 mx-auto mt-12 max-w-[1180px] px-5 md:px-8">
-        <ImageConstellation />
       </div>
     </section>
   );
