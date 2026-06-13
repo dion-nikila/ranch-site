@@ -2,12 +2,13 @@
 
 import { motion } from "motion/react";
 import { AnimatedMountainLines } from "./AnimatedMountainLines";
+import { ImageConstellation } from "./ImageConstellation";
 import { ease, fadeUp, staggerContainer } from "./motion";
 
 export function RanchStory() {
   return (
-    <section id="the-ranch" className="relative overflow-hidden bg-[linear-gradient(180deg,#F8F5EF_0%,#FFFDF8_100%)] py-16 md:py-24">
-      <AnimatedMountainLines className="absolute left-1/2 top-0 h-full w-[1280px] max-w-none -translate-x-1/2 opacity-35" />
+    <section id="the-ranch" className="relative overflow-hidden bg-[linear-gradient(180deg,rgba(12,22,19,0.86)_0%,rgba(17,29,25,0.72)_100%)] py-16 md:py-24">
+      <AnimatedMountainLines className="absolute left-1/2 top-[-12%] h-[124%] w-[1500px] max-w-none -translate-x-1/2 opacity-80" />
       <div className="relative z-10 mx-auto grid max-w-[1180px] gap-10 px-5 md:grid-cols-[1fr_0.86fr] md:items-end md:px-8">
         <motion.div
           variants={staggerContainer}
@@ -36,6 +37,9 @@ export function RanchStory() {
             Private trails, small groups, and a pace set by the horse.
           </p>
         </motion.div>
+      </div>
+      <div className="relative z-10 mx-auto mt-12 max-w-[1180px] px-5 md:px-8">
+        <ImageConstellation />
       </div>
     </section>
   );

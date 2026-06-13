@@ -1,14 +1,14 @@
 @import "tailwindcss";
 
 :root {
-  --bg: #faf8f3;
-  --bg-warm: #f8f5ef;
-  --text: #171717;
-  --muted: #6f6a61;
-  --green: #18382d;
-  --gold: #a8874a;
-  --border: #ded8cc;
-  --card: #fffdf8;
+  --bg: #08100e;
+  --bg-warm: #101c18;
+  --text: #f7efe1;
+  --muted: #b7ad9a;
+  --green: #142f27;
+  --gold: #d2b163;
+  --border: rgba(210, 177, 99, 0.24);
+  --card: rgba(12, 24, 21, 0.76);
 }
 
 @theme inline {
@@ -28,8 +28,9 @@ html {
 body {
   margin: 0;
   background:
-    radial-gradient(circle at 18% 2%, rgba(168, 135, 74, 0.08), transparent 27rem),
-    linear-gradient(180deg, var(--bg), var(--bg-warm));
+    radial-gradient(circle at 12% 4%, rgba(210, 177, 99, 0.12), transparent 28rem),
+    radial-gradient(circle at 86% 16%, rgba(69, 120, 96, 0.18), transparent 32rem),
+    linear-gradient(180deg, #07100e 0%, #101b17 46%, #070d0c 100%);
   color: var(--text);
   font-family: var(--font-sans), ui-sans-serif, system-ui, sans-serif;
   -webkit-font-smoothing: antialiased;
@@ -63,6 +64,7 @@ a {
   line-height: 1.2;
   text-transform: uppercase;
   color: var(--gold);
+  text-shadow: 0 0 18px rgba(210, 177, 99, 0.28);
 }
 
 .section-title {
@@ -72,6 +74,7 @@ a {
   letter-spacing: -0.02em;
   line-height: 0.96;
   color: var(--text);
+  text-shadow: 0 18px 52px rgba(0, 0, 0, 0.32);
 }
 
 .button-shimmer {
@@ -95,24 +98,42 @@ a {
 
 .booking-shell {
   background:
-    linear-gradient(180deg, rgba(255, 255, 255, 0.055), transparent 38%),
-    linear-gradient(135deg, #18382d, #142f26);
+    linear-gradient(180deg, rgba(210, 177, 99, 0.08), transparent 38%),
+    linear-gradient(135deg, rgba(12, 27, 23, 0.96), rgba(8, 16, 14, 0.98));
+}
+
+header {
+  border-color: rgba(210, 177, 99, 0.18) !important;
+  background: rgba(7, 14, 12, 0.82) !important;
+  box-shadow: 0 14px 44px rgba(0, 0, 0, 0.26);
+}
+
+.site-line-field {
+  z-index: 0;
+  opacity: 0.34;
+  color: rgba(210, 177, 99, 0.9);
+  transform: scale(1.28);
+  transform-origin: center;
+  filter: drop-shadow(0 0 18px rgba(210, 177, 99, 0.18));
 }
 
 .hero-section {
   background:
-    radial-gradient(circle at 78% 30%, rgba(168, 135, 74, 0.08), transparent 28rem),
-    linear-gradient(180deg, #faf8f3 0%, #f8f5ef 100%);
+    radial-gradient(circle at 72% 30%, rgba(210, 177, 99, 0.16), transparent 30rem),
+    radial-gradient(circle at 50% 96%, rgba(69, 120, 96, 0.18), transparent 26rem),
+    linear-gradient(180deg, rgba(7, 14, 12, 0.94) 0%, rgba(13, 25, 22, 0.82) 62%, rgba(9, 16, 14, 0.88) 100%);
 }
 
 .animated-mountain-lines {
-  opacity: 0.72;
-  filter: drop-shadow(0 10px 24px rgba(63, 95, 82, 0.08));
+  opacity: 0.92;
+  filter:
+    drop-shadow(0 0 14px rgba(210, 177, 99, 0.15))
+    drop-shadow(0 14px 26px rgba(0, 0, 0, 0.24));
 }
 
 .mountain-line {
-  stroke-dasharray: 16 22;
-  animation: mountainLineTravel 5.6s linear infinite;
+  stroke-dasharray: 24 18;
+  animation: mountainLineTravel 4.8s linear infinite;
 }
 
 .mountain-line-primary {
@@ -139,10 +160,10 @@ a {
   height: 48%;
   pointer-events: none;
   background:
-    radial-gradient(ellipse at 18% 62%, rgba(255, 253, 248, 0.82), transparent 28%),
-    radial-gradient(ellipse at 72% 42%, rgba(255, 253, 248, 0.66), transparent 34%),
-    linear-gradient(90deg, transparent, rgba(250, 248, 243, 0.52), transparent);
-  filter: blur(18px);
+    radial-gradient(ellipse at 18% 62%, rgba(210, 177, 99, 0.12), transparent 28%),
+    radial-gradient(ellipse at 72% 42%, rgba(69, 120, 96, 0.16), transparent 34%),
+    linear-gradient(90deg, transparent, rgba(210, 177, 99, 0.08), transparent);
+  filter: blur(22px);
   animation: heroMistDrift 16s cubic-bezier(0.22, 1, 0.36, 1) infinite alternate;
 }
 
@@ -152,7 +173,7 @@ a {
   z-index: 3;
   pointer-events: none;
   opacity: 0.45;
-  background: linear-gradient(108deg, transparent 8%, rgba(168, 135, 74, 0.08) 28%, transparent 46%);
+  background: linear-gradient(108deg, transparent 8%, rgba(210, 177, 99, 0.18) 28%, transparent 46%);
   transform: translateX(-36%);
   animation: heroLightSweep 7.5s cubic-bezier(0.22, 1, 0.36, 1) infinite;
 }
@@ -179,8 +200,8 @@ a {
   z-index: 20;
   pointer-events: none;
   background:
-    linear-gradient(90deg, rgba(250, 248, 243, 0.72) 0%, rgba(250, 248, 243, 0.18) 14%, rgba(250, 248, 243, 0) 38%, rgba(250, 248, 243, 0.14) 78%, rgba(250, 248, 243, 0.68) 100%),
-    linear-gradient(180deg, rgba(250, 248, 243, 0.72) 0%, rgba(250, 248, 243, 0) 16%, rgba(250, 248, 243, 0) 74%, rgba(250, 248, 243, 0.7) 100%);
+    linear-gradient(90deg, rgba(8, 16, 14, 0.78) 0%, rgba(8, 16, 14, 0.16) 14%, rgba(8, 16, 14, 0) 38%, rgba(8, 16, 14, 0.18) 78%, rgba(8, 16, 14, 0.84) 100%),
+    linear-gradient(180deg, rgba(8, 16, 14, 0.74) 0%, rgba(8, 16, 14, 0) 18%, rgba(8, 16, 14, 0) 70%, rgba(8, 16, 14, 0.86) 100%);
 }
 
 .hero-image-layer {
@@ -189,7 +210,9 @@ a {
 }
 
 .hero-photo-vignette {
-  background: radial-gradient(ellipse at center, rgba(250, 248, 243, 0) 44%, rgba(250, 248, 243, 0.22) 84%, rgba(250, 248, 243, 0.48) 100%);
+  background:
+    radial-gradient(ellipse at center, rgba(210, 177, 99, 0.08) 0%, rgba(8, 16, 14, 0) 48%, rgba(8, 16, 14, 0.62) 100%),
+    linear-gradient(135deg, rgba(210, 177, 99, 0.08), rgba(69, 120, 96, 0.14));
 }
 
 .hero-orbit-line {
@@ -199,7 +222,7 @@ a {
   pointer-events: none;
   border: 1px solid rgba(168, 135, 74, 0.18);
   border-left-color: transparent;
-  border-bottom-color: rgba(83, 104, 94, 0.13);
+  border-bottom-color: rgba(210, 177, 99, 0.2);
   border-radius: 50%;
   transform: rotate(-9deg);
   animation: heroOrbitFloat 8s cubic-bezier(0.22, 1, 0.36, 1) infinite alternate;
@@ -348,7 +371,15 @@ a {
 
 .hero-photo [style],
 .hero-photo .bg-cover {
-  filter: grayscale(1);
+  filter: grayscale(1) contrast(1.08) brightness(0.78);
+}
+
+.image-node > [style] {
+  filter: grayscale(1) contrast(1.14) brightness(0.78);
+}
+
+.portrait-fallback {
+  border-radius: 0.75rem !important;
 }
 
 .portrait-fallback {
@@ -358,8 +389,10 @@ a {
     radial-gradient(ellipse at 50% 42%, #c8c3b8 0 23%, transparent 23.5%),
     radial-gradient(ellipse at 50% 102%, #b6afa4 0 42%, transparent 42.5%),
     radial-gradient(ellipse at 50% 15%, #2f2d2a 0 25%, transparent 25.5%),
-    linear-gradient(145deg, #f4f0e8 0%, #d8d2c7 58%, #f8f5ef 100%);
-  box-shadow: inset 0 0 32px rgba(23, 23, 23, 0.08);
+    linear-gradient(145deg, #18241f 0%, #0b1412 58%, #2b2a22 100%);
+  box-shadow:
+    inset 0 0 32px rgba(210, 177, 99, 0.08),
+    0 18px 42px rgba(0, 0, 0, 0.28);
 }
 
 .portrait-fallback::before {
@@ -367,8 +400,9 @@ a {
   position: absolute;
   inset: 0;
   background:
-    radial-gradient(ellipse at 36% 25%, rgba(255, 255, 255, 0.72), transparent 30%),
-    linear-gradient(90deg, rgba(255, 255, 255, 0.38), transparent 42%, rgba(23, 23, 23, 0.12));
+    repeating-linear-gradient(180deg, rgba(210, 177, 99, 0.08) 0 1px, transparent 1px 8px),
+    radial-gradient(ellipse at 36% 25%, rgba(210, 177, 99, 0.18), transparent 30%),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.08), transparent 42%, rgba(0, 0, 0, 0.34));
   mix-blend-mode: screen;
   pointer-events: none;
 }
@@ -399,8 +433,114 @@ main > section::before {
   position: absolute;
   inset: 0 0 auto;
   height: 1px;
-  background: linear-gradient(90deg, transparent, rgba(222, 216, 204, 0.78), transparent);
+  background: linear-gradient(90deg, transparent, rgba(210, 177, 99, 0.52), transparent);
   pointer-events: none;
+}
+
+#experiences,
+#trail-rides,
+#boarding,
+#resources,
+#lessons-and-training,
+#journal {
+  background:
+    linear-gradient(180deg, rgba(8, 16, 14, 0.72), rgba(15, 27, 23, 0.66)) !important;
+}
+
+#booking {
+  background: transparent !important;
+}
+
+.service-card,
+#trail-rides article,
+#boarding [class*="border"],
+#resources article {
+  border-color: var(--border) !important;
+  background:
+    linear-gradient(180deg, rgba(255, 255, 255, 0.035), transparent 40%),
+    rgba(10, 22, 19, 0.72) !important;
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.06),
+    0 18px 52px rgba(0, 0, 0, 0.22);
+  backdrop-filter: blur(14px);
+}
+
+.service-card:hover,
+#trail-rides article:hover,
+#resources article:hover {
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.08),
+    0 0 0 1px rgba(210, 177, 99, 0.18),
+    0 22px 64px rgba(0, 0, 0, 0.3);
+}
+
+.image-constellation {
+  perspective: 1200px;
+}
+
+.image-node {
+  box-shadow:
+    inset 0 0 0 1px rgba(255, 255, 255, 0.035),
+    0 0 0 1px rgba(210, 177, 99, 0.08),
+    0 22px 70px rgba(0, 0, 0, 0.34);
+  clip-path: polygon(0 0, calc(100% - 18px) 0, 100% 18px, 100% 100%, 18px 100%, 0 calc(100% - 18px));
+}
+
+.image-node-photo {
+  background-position: 50% 50%;
+}
+
+.image-node-lead .image-node-photo {
+  background-position: 58% 44%;
+}
+
+.image-node-portrait .image-node-photo {
+  background-position: 52% 48%;
+}
+
+.image-node-close .image-node-photo {
+  background-position: 64% 42%;
+}
+
+.image-node::before,
+.image-node::after {
+  content: "";
+  position: absolute;
+  pointer-events: none;
+}
+
+.image-node::before {
+  inset: 0;
+  z-index: 2;
+  background:
+    linear-gradient(180deg, rgba(8, 16, 14, 0.04), rgba(8, 16, 14, 0.28) 46%, rgba(8, 16, 14, 0.86)),
+    radial-gradient(circle at 78% 18%, rgba(210, 177, 99, 0.24), transparent 28%);
+}
+
+.image-node::after {
+  inset: 14px;
+  z-index: 3;
+  border: 1px solid rgba(210, 177, 99, 0.22);
+  opacity: 0.72;
+}
+
+.image-node-scan {
+  z-index: 4;
+  background:
+    repeating-linear-gradient(180deg, rgba(210, 177, 99, 0.09) 0 1px, transparent 1px 9px),
+    linear-gradient(90deg, transparent, rgba(210, 177, 99, 0.12), transparent);
+  mix-blend-mode: screen;
+  opacity: 0.42;
+  animation: scanTravel 5.5s linear infinite;
+}
+
+@keyframes scanTravel {
+  from {
+    transform: translateY(-14px);
+  }
+  to {
+    transform: translateY(14px);
+  }
 }
 
 #booking::before {
@@ -468,8 +608,8 @@ main > section::before {
 
   .hero-photo-soft::after {
     background:
-      linear-gradient(180deg, var(--bg) 0%, rgba(250, 248, 243, 0.18) 22%, rgba(250, 248, 243, 0) 48%, var(--bg) 100%),
-      linear-gradient(90deg, var(--bg) 0%, rgba(250, 248, 243, 0) 28%, rgba(250, 248, 243, 0.18) 72%, var(--bg) 100%);
+      linear-gradient(180deg, var(--bg) 0%, rgba(8, 16, 14, 0.12) 22%, rgba(8, 16, 14, 0) 48%, var(--bg) 100%),
+      linear-gradient(90deg, var(--bg) 0%, rgba(8, 16, 14, 0) 28%, rgba(8, 16, 14, 0.12) 72%, var(--bg) 100%);
   }
 
   .hero-image-layer {
@@ -490,6 +630,60 @@ main > section::before {
   .hero-scroll-indicator {
     bottom: 0.85rem;
     height: 42px;
+  }
+
+  .image-constellation {
+    gap: 1rem;
+  }
+
+  .image-node {
+    min-height: clamp(18rem, 72vw, 22rem);
+    clip-path: polygon(0 0, calc(100% - 14px) 0, 100% 14px, 100% 100%, 14px 100%, 0 calc(100% - 14px));
+  }
+
+  .image-node-lead {
+    min-height: clamp(23rem, 98vw, 29rem);
+  }
+
+  .image-node-portrait {
+    min-height: clamp(16rem, 64vw, 19rem);
+  }
+
+  .image-node::after {
+    inset: 10px;
+  }
+
+  .image-node > .absolute.inset-x-0 {
+    padding: 1.1rem;
+  }
+
+  .image-node h3 {
+    font-size: clamp(2rem, 10vw, 2.9rem);
+  }
+
+  .image-node span {
+    height: 2.35rem;
+    width: 2.35rem;
+  }
+
+  .image-node-lead .image-node-photo {
+    background-position: 61% 45%;
+  }
+
+  .image-node-portrait .image-node-photo {
+    background-position: 50% 50%;
+  }
+
+  .image-node-close .image-node-photo {
+    background-position: 66% 44%;
+  }
+}
+
+@media (max-width: 360px) {
+  .button-shimmer {
+    letter-spacing: 0.16em;
+    padding-left: 1.1rem;
+    padding-right: 1.1rem;
   }
 }
 

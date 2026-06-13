@@ -48,7 +48,7 @@ export function Hero() {
           </motion.p>
           <motion.h1
             variants={staggerContainer}
-            className="font-serif text-[3.08rem] font-light leading-[0.92] tracking-[-0.02em] text-[var(--text)] md:text-[4.85rem] xl:text-[5.15rem]"
+            className="font-serif text-[clamp(2.35rem,12.6vw,3.08rem)] font-light leading-[0.92] tracking-[-0.02em] text-[var(--text)] md:text-[4.85rem] xl:text-[5.15rem]"
           >
             {["Return to", "what moves you."].map((line) => (
               <motion.span variants={fadeUp} className="block whitespace-nowrap" key={line}>
