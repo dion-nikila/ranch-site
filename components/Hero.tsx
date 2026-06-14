@@ -25,7 +25,11 @@ export function Hero() {
         transition={{ duration: 1.4, delay: 0.15, ease }}
       />
       <AnimatedMountainLines
-        className="hero-landscape absolute left-1/2 top-[6%] z-[2] h-[86%] w-[138vw] max-w-none -translate-x-1/2"
+        className="hero-landscape hero-landscape-primary absolute left-1/2 top-[2%] z-[2] h-[94%] w-[152vw] max-w-none -translate-x-1/2"
+        style={{ y: mountainY }}
+      />
+      <AnimatedMountainLines
+        className="hero-landscape hero-landscape-echo absolute left-1/2 top-[14%] z-[2] h-[74%] w-[118vw] max-w-none -translate-x-1/2"
         style={{ y: mountainY }}
       />
       <motion.div
@@ -34,13 +38,6 @@ export function Hero() {
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ duration: 1.4, delay: 0.9, ease }}
-      />
-      <motion.div
-        className="hero-light-sweep"
-        aria-hidden="true"
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ duration: 1.1, delay: 1.2, ease }}
       />
       <div className="relative z-10 mx-auto grid min-h-[calc(100svh-6rem)] max-w-[1440px] items-start px-5 pt-9 md:min-h-[calc(92vh-7rem)] md:items-center md:px-8 md:pt-0 lg:px-12">
         <motion.div

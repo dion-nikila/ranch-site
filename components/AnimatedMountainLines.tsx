@@ -35,45 +35,45 @@ export function AnimatedMountainLines({ className = "", style }: AnimatedMountai
         className="mountain-line mountain-line-primary"
         d="M-36 426C80 344 143 276 247 312c72 25 100 126 174 104 98-30 133-192 236-190 91 2 126 152 218 145 79-6 111-139 201-142 104-4 155 163 256 181 56 10 98-14 151-58"
         stroke="currentColor"
-        strokeWidth="1.9"
+        strokeWidth="2.45"
         strokeLinecap="round"
         initial={lineInitial}
-        animate={loopLine(0.38)}
+        animate={loopLine(0.62)}
         transition={draw(1.85)}
       />
       <motion.path
         className="mountain-line mountain-line-secondary"
         d="M58 480c86-73 144-117 222-102 82 16 100 91 183 82 101-12 134-139 237-141 116-2 158 163 270 154 75-6 118-86 198-81 65 4 108 63 179 55"
         stroke="currentColor"
-        strokeWidth="1.55"
+        strokeWidth="2"
         strokeLinecap="round"
         initial={lineInitial}
-        animate={loopLine(0.31)}
+        animate={loopLine(0.52)}
         transition={draw(1.75, 0.55)}
       />
       <motion.path
         className="mountain-line mountain-line-tertiary"
         d="M24 570c188-22 338-25 517-7 178 18 313 34 547 3 130-17 229-17 363 4"
         stroke="currentColor"
-        strokeWidth="1.35"
+        strokeWidth="1.7"
         strokeLinecap="round"
         initial={lineInitial}
-        animate={loopLine(0.28)}
+        animate={loopLine(0.42)}
         transition={draw(1.55, 1.15)}
       />
       <motion.path
         className="mountain-line mountain-line-tertiary"
         d="M114 620c172-24 265-24 411-7 135 16 251 23 427-4 149-23 256-18 382 11"
         stroke="currentColor"
-        strokeWidth="1.1"
+        strokeWidth="1.45"
         strokeLinecap="round"
         initial={lineInitial}
-        animate={loopLine(0.2)}
+        animate={loopLine(0.32)}
         transition={draw(1.45, 1.35)}
       />
       <motion.g
         initial={reduceMotion ? { opacity: 0.32 } : { opacity: 0 }}
-        animate={{ opacity: 0.34 }}
+        animate={{ opacity: 0.46 }}
         transition={{ duration: reduceMotion ? 0 : 0.85, delay: reduceMotion ? 0 : 1.95, ease }}
         stroke="currentColor"
         strokeWidth="1.15"
@@ -92,13 +92,13 @@ export function AnimatedMountainLines({ className = "", style }: AnimatedMountai
         stroke="currentColor"
         strokeWidth="0.85"
         initial={initial}
-        animate={loopLine(0.26)}
+        animate={loopLine(0.34)}
         transition={draw(1.25, 2.25)}
       />
       <motion.g
         className="mountain-line-drift"
         initial={reduceMotion ? { opacity: 0.12 } : { opacity: 0 }}
-        animate={{ opacity: 0.24 }}
+        animate={{ opacity: 0.34 }}
         transition={{ duration: reduceMotion ? 0 : 1, delay: reduceMotion ? 0 : 2.55, ease }}
         stroke="currentColor"
         strokeWidth="0.55"
