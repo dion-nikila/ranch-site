@@ -22,12 +22,12 @@ export function Navbar() {
   return (
     <motion.header
       className="fixed left-0 right-0 top-0 z-50 border-b border-[var(--border)] bg-[rgba(250,248,243,0.86)] backdrop-blur-xl"
-      initial={{ opacity: 0, y: -12 }}
+      initial={false}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.75, ease }}
     >
       <nav className="mx-auto flex h-[4.75rem] max-w-[1440px] items-center justify-between px-4 sm:px-5 md:h-20 md:px-8 lg:px-12">
-        <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 0.8, delay: 0.15 }}>
+        <motion.div initial={false} animate={{ opacity: 1 }} transition={{ duration: 0.8, delay: 0.15 }}>
           <Logo />
         </motion.div>
         <div className="hidden items-center gap-5 lg:flex xl:gap-7">

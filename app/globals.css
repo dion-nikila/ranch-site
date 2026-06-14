@@ -149,6 +149,11 @@ header {
     drop-shadow(0 14px 26px rgba(0, 0, 0, 0.24));
 }
 
+.animated-mountain-lines.is-static .mountain-line,
+.animated-mountain-lines.is-static .mountain-line-drift {
+  animation: none !important;
+}
+
 .hero-landscape-primary {
   color: rgba(236, 225, 198, 0.66);
   opacity: 0.44;
@@ -220,6 +225,51 @@ header {
 .hero-lines-calm g:not(.mountain-line-drift) {
   stroke-opacity: 0.48;
   opacity: 0.5;
+}
+
+.hero-adventure-panel {
+  border-radius: 1.15rem;
+}
+
+.hero-adventure-photo {
+  position: relative;
+  min-height: clamp(10.5rem, 18vw, 13.5rem);
+  overflow: hidden;
+  border: 1px solid rgba(255, 247, 234, 0.16);
+  border-radius: 0.8rem;
+  background:
+    linear-gradient(180deg, rgba(16, 36, 29, 0.02), rgba(16, 36, 29, 0.44)),
+    url("/images/ranch-trail-horses.png");
+  background-position: 52% 44%;
+  background-size: cover;
+  box-shadow:
+    inset 0 0 0 1px rgba(255, 255, 255, 0.05),
+    0 18px 46px rgba(0, 0, 0, 0.26);
+}
+
+.hero-adventure-photo::after {
+  content: "Start here";
+  position: absolute;
+  right: 0.85rem;
+  bottom: 0.85rem;
+  border: 1px solid rgba(255, 247, 234, 0.22);
+  background: rgba(8, 18, 15, 0.62);
+  padding: 0.55rem 0.72rem;
+  color: var(--gold);
+  font-size: 0.58rem;
+  font-weight: 800;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  backdrop-filter: blur(12px);
+}
+
+.hero-adventure-card {
+  border-radius: 0.75rem;
+}
+
+.hero-adventure-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 16px 34px rgba(0, 0, 0, 0.22);
 }
 
 .hero-mist-layer {
@@ -538,7 +588,7 @@ main > section::before {
   background-image:
     repeating-radial-gradient(ellipse at 32% 48%, transparent 0 18px, rgba(255,255,255,0.48) 19px 20px, transparent 21px 42px),
     repeating-radial-gradient(ellipse at 72% 42%, transparent 0 22px, rgba(255,255,255,0.34) 23px 24px, transparent 25px 52px);
-  animation: drift 18s linear infinite;
+  transform: translate3d(1%, -1%, 0);
 }
 
 .topo-bg > * {
@@ -601,9 +651,28 @@ main > section::before {
     opacity: 0.72;
   }
 
+  .hero-adventure-panel {
+    margin-top: 0.5rem;
+    padding: 0.85rem;
+  }
+
+  .hero-adventure-photo {
+    min-height: 10.5rem;
+    background-position: 48% 46%;
+  }
+
+  .hero-adventure-card {
+    padding: 0.9rem;
+  }
+
+  .hero-adventure-card span {
+    min-width: 0;
+  }
+
   .hero-scroll-indicator {
     bottom: 0.85rem;
     height: 42px;
+    display: none;
   }
 
   .image-constellation {

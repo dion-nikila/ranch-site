@@ -7,25 +7,26 @@ import { ease } from "./motion";
 type AnimatedMountainLinesProps = {
   className?: string;
   style?: MotionStyle;
+  animated?: boolean;
 };
 
-export function AnimatedMountainLines({ className = "", style }: AnimatedMountainLinesProps) {
+export function AnimatedMountainLines({ className = "", style, animated = true }: AnimatedMountainLinesProps) {
   const reduceMotion = useReducedMotion();
   const draw = (duration: number, delay = 0) => ({
     duration: reduceMotion ? 0 : duration,
     delay: reduceMotion ? 0 : delay,
     ease,
-    repeat: reduceMotion ? 0 : Infinity,
+    repeat: reduceMotion || !animated ? 0 : Infinity,
     repeatDelay: 2.4,
     repeatType: "loop" as const,
   });
   const initial = reduceMotion ? { pathLength: 1, opacity: 1 } : { pathLength: 0, opacity: 0 };
   const lineInitial = reduceMotion ? { opacity: 1 } : { opacity: 0 };
-  const loopLine = (opacity: number) => (reduceMotion ? { opacity } : { opacity: [0, opacity, opacity * 0.68, opacity] });
+  const loopLine = (opacity: number) => (reduceMotion || !animated ? { opacity } : { opacity: [0, opacity, opacity * 0.68, opacity] });
 
   return (
     <motion.svg
-      className={`animated-mountain-lines pointer-events-none text-[#3f5f52] ${className}`}
+      className={`animated-mountain-lines ${animated ? "is-animated" : "is-static"} pointer-events-none text-[#3f5f52] ${className}`}
       style={style}
       viewBox="0 0 1440 760"
       fill="none"

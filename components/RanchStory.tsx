@@ -7,7 +7,7 @@ import { ease, fadeUp, staggerContainer } from "./motion";
 export function RanchStory() {
   return (
     <section id="the-ranch" className="relative overflow-hidden bg-[linear-gradient(180deg,rgba(12,22,19,0.86)_0%,rgba(17,29,25,0.72)_100%)] py-16 md:py-24">
-      <AnimatedMountainLines className="absolute left-1/2 top-[-12%] h-[124%] w-[1500px] max-w-none -translate-x-1/2 opacity-80" />
+      <AnimatedMountainLines animated={false} className="absolute left-1/2 top-[-12%] h-[124%] w-[1500px] max-w-none -translate-x-1/2 opacity-60" />
       <div className="relative z-10 mx-auto grid max-w-[1180px] gap-10 px-5 md:grid-cols-[1fr_0.86fr] md:items-end md:px-8">
         <motion.div
           variants={staggerContainer}
