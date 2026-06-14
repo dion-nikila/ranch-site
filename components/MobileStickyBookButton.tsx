@@ -1,23 +1,55 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import { FineIcon } from "./icons";
+
+const mobileActions = [
+  {
+    href: "#booking",
+    icon: "calendar",
+    label: "Reserve",
+    detail: "Ride time",
+  },
+  {
+    href: "#trail-rides",
+    icon: "horse",
+    label: "Trails",
+    detail: "Packages",
+  },
+  {
+    href: "#lessons-and-training",
+    icon: "boot",
+    label: "Lessons",
+    detail: "Training",
+  },
+];
 
 export function MobileStickyBookButton() {
   const [visible, setVisible] = useState(false);
 
   useEffect(() => {
-    const onScroll = () => setVisible(window.scrollY > window.innerHeight * 0.7);
+    const onScroll = () => setVisible(window.scrollY > window.innerHeight * 0.42);
     onScroll();
     window.addEventListener("scroll", onScroll, { passive: true });
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
   return (
-    <a
-      className={`fixed bottom-3 left-3 right-3 z-50 flex min-h-14 items-center justify-center bg-[var(--gold)] text-[0.72rem] font-bold uppercase tracking-[0.24em] text-white shadow-[0_18px_40px_rgba(23,23,23,0.18)] transition-all duration-500 md:hidden ${visible ? "translate-y-0 opacity-100" : "translate-y-6 opacity-0 pointer-events-none"}`}
-      href="#booking"
+    <nav
+      aria-label="Quick ranch actions"
+      className={`mobile-action-dock fixed bottom-3 left-3 right-3 z-50 md:hidden ${visible ? "is-visible" : ""}`}
     >
-      Book Now
-    </a>
+      {mobileActions.map((action) => (
+        <a className="mobile-action-dock-item" href={action.href} key={action.href}>
+          <span className="mobile-action-dock-icon">
+            <FineIcon name={action.icon} className="h-5 w-5" />
+          </span>
+          <span className="min-w-0">
+            <span className="mobile-action-dock-label">{action.label}</span>
+            <span className="mobile-action-dock-detail">{action.detail}</span>
+          </span>
+        </a>
+      ))}
+    </nav>
   );
 }
