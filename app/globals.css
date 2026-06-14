@@ -139,7 +139,7 @@ header {
   opacity: 0.18;
   filter: saturate(0.82) contrast(0.9) brightness(1.12);
   transform-origin: center;
-  animation: heroBackdropDrift 18s cubic-bezier(0.22, 1, 0.36, 1) infinite alternate;
+  will-change: transform;
 }
 
 .animated-mountain-lines {
@@ -228,48 +228,140 @@ header {
 }
 
 .hero-adventure-panel {
-  border-radius: 1.15rem;
-}
-
-.hero-adventure-photo {
   position: relative;
-  min-height: clamp(10.5rem, 18vw, 13.5rem);
+  min-height: min(68vh, 38rem);
   overflow: hidden;
-  border: 1px solid rgba(255, 247, 234, 0.16);
-  border-radius: 0.8rem;
+  border-left: 1px solid rgba(255, 247, 234, 0.18);
+  border-radius: 0 0 0 5.5rem;
   background:
-    linear-gradient(180deg, rgba(16, 36, 29, 0.02), rgba(16, 36, 29, 0.44)),
-    url("/images/ranch-trail-horses.png");
-  background-position: 52% 44%;
-  background-size: cover;
-  box-shadow:
-    inset 0 0 0 1px rgba(255, 255, 255, 0.05),
-    0 18px 46px rgba(0, 0, 0, 0.26);
+    linear-gradient(180deg, rgba(12, 27, 23, 0.12), rgba(12, 27, 23, 0.76)),
+    radial-gradient(circle at 22% 18%, rgba(210, 177, 99, 0.22), transparent 18rem),
+    rgba(12, 27, 23, 0.46);
+  box-shadow: -32px 36px 90px rgba(0, 0, 0, 0.28);
 }
 
-.hero-adventure-photo::after {
-  content: "Start here";
+.hero-adventure-panel::before {
+  content: "";
   position: absolute;
-  right: 0.85rem;
-  bottom: 0.85rem;
-  border: 1px solid rgba(255, 247, 234, 0.22);
-  background: rgba(8, 18, 15, 0.62);
-  padding: 0.55rem 0.72rem;
-  color: var(--gold);
-  font-size: 0.58rem;
-  font-weight: 800;
-  letter-spacing: 0.22em;
-  text-transform: uppercase;
-  backdrop-filter: blur(12px);
+  inset: 0;
+  opacity: 0.32;
+  background-image:
+    repeating-radial-gradient(ellipse at 32% 44%, transparent 0 22px, rgba(255,255,255,0.42) 23px 24px, transparent 25px 54px),
+    repeating-radial-gradient(ellipse at 74% 36%, transparent 0 28px, rgba(255,255,255,0.28) 29px 30px, transparent 31px 66px);
+  pointer-events: none;
 }
 
-.hero-adventure-card {
-  border-radius: 0.75rem;
+.hero-adventure-media {
+  position: absolute;
+  inset: -8% -4%;
+  background:
+    linear-gradient(90deg, rgba(18, 39, 32, 0.24), rgba(18, 39, 32, 0.04) 48%, rgba(18, 39, 32, 0.82)),
+    linear-gradient(180deg, rgba(12, 27, 23, 0.02), rgba(12, 27, 23, 0.84)),
+    url("/images/ranch-trail-horses.png");
+  background-position: 48% 50%;
+  background-size: cover;
+  opacity: 0.74;
+  will-change: transform;
 }
 
-.hero-adventure-card:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 16px 34px rgba(0, 0, 0, 0.22);
+.hero-adventure-panel::after {
+  content: "";
+  position: absolute;
+  inset: 1rem;
+  border: 1px solid rgba(255, 247, 234, 0.16);
+  border-radius: 0 0 0 4.4rem;
+  pointer-events: none;
+}
+
+.hero-adventure-content {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  min-height: min(68vh, 38rem);
+  align-content: end;
+  gap: 1.35rem;
+  padding: clamp(1.4rem, 3vw, 2rem);
+  will-change: transform;
+}
+
+.hero-adventure-routes {
+  display: grid;
+  gap: 0.55rem;
+}
+
+.hero-adventure-route {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  border-top: 1px solid rgba(255, 247, 234, 0.18);
+  padding: 0.9rem 0;
+  transition: border-color 0.25s ease, transform 0.25s ease;
+}
+
+.hero-adventure-route:hover {
+  border-color: rgba(210, 177, 99, 0.7);
+  transform: translateX(6px);
+}
+
+.booking-field {
+  z-index: 1;
+}
+
+.booking-field:has(.booking-dropdown) {
+  z-index: 30;
+}
+
+.booking-dropdown {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: calc(100% + 0.45rem);
+  z-index: 40;
+  overflow: hidden;
+  border: 1px solid rgba(210, 177, 99, 0.28);
+  border-radius: 0.8rem;
+  background: rgba(9, 22, 18, 0.98);
+  box-shadow: 0 24px 70px rgba(0, 0, 0, 0.34);
+  animation: dropdownReveal 0.18s cubic-bezier(0.22, 1, 0.36, 1);
+  transform-origin: top;
+}
+
+.booking-dropdown-option {
+  display: flex;
+  min-height: 3rem;
+  width: 100%;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem;
+  border: 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  background: transparent;
+  padding: 0.85rem 1rem;
+  color: white;
+  font-size: 0.82rem;
+  text-align: left;
+  transition: background 0.2s ease;
+}
+
+.booking-dropdown-option:last-child {
+  border-bottom: 0;
+}
+
+.booking-dropdown-option:hover,
+.booking-dropdown-option.is-selected {
+  background: rgba(210, 177, 99, 0.13);
+}
+
+@keyframes dropdownReveal {
+  from {
+    opacity: 0;
+    transform: translateY(-6px) scaleY(0.96);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scaleY(1);
+  }
 }
 
 .hero-mist-layer {
@@ -653,19 +745,34 @@ main > section::before {
 
   .hero-adventure-panel {
     margin-top: 0.5rem;
-    padding: 0.85rem;
+    min-height: 23rem;
+    border-left: 0;
+    border-radius: 1.1rem 1.1rem 0 0;
   }
 
-  .hero-adventure-photo {
-    min-height: 10.5rem;
-    background-position: 48% 46%;
+  .hero-adventure-panel::after {
+    inset: 0.75rem;
+    border-radius: 0.85rem 0.85rem 0 0;
   }
 
-  .hero-adventure-card {
-    padding: 0.9rem;
+  .hero-adventure-media {
+    background-position: 46% 50%;
   }
 
-  .hero-adventure-card span {
+  .hero-adventure-content {
+    min-height: 23rem;
+    padding: 1.25rem;
+  }
+
+  .hero-adventure-routes {
+    gap: 0.1rem;
+  }
+
+  .hero-adventure-route {
+    padding: 0.7rem 0;
+  }
+
+  .hero-adventure-route span {
     min-width: 0;
   }
 

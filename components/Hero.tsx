@@ -31,7 +31,12 @@ export function Hero() {
     target: heroRef,
     offset: ["start start", "end start"],
   });
-  const mountainY = useTransform(scrollYProgress, [0, 1], [0, reduceMotion ? 0 : -15]);
+  const backdropY = useTransform(scrollYProgress, [0, 1], [0, reduceMotion ? 0 : 42]);
+  const backdropScale = useTransform(scrollYProgress, [0, 1], [1.03, reduceMotion ? 1.03 : 1.08]);
+  const mountainY = useTransform(scrollYProgress, [0, 1], [0, reduceMotion ? 0 : -32]);
+  const panelY = useTransform(scrollYProgress, [0, 1], [0, reduceMotion ? 0 : -22]);
+  const mediaY = useTransform(scrollYProgress, [0, 1], [0, reduceMotion ? 0 : 52]);
+  const contentY = useTransform(scrollYProgress, [0, 1], [0, reduceMotion ? 0 : -28]);
 
   return (
     <section ref={heroRef} className="hero-section relative min-h-[100svh] overflow-hidden pb-12 pt-24 md:min-h-[92vh] md:pb-20 md:pt-28">
@@ -39,7 +44,8 @@ export function Hero() {
         className="hero-photo-backdrop"
         aria-hidden="true"
         initial={false}
-        animate={{ scale: 1 }}
+        style={{ y: backdropY, scale: backdropScale }}
+        animate={{ opacity: 1 }}
         transition={{ duration: 1.4, delay: 0.15, ease }}
       />
       <AnimatedMountainLines
@@ -62,7 +68,7 @@ export function Hero() {
       <div className="relative z-10 mx-auto grid min-h-[calc(100svh-6rem)] max-w-[1440px] items-start gap-8 px-5 pt-9 md:min-h-[calc(92vh-7rem)] md:items-center md:px-8 md:pt-0 lg:grid-cols-[minmax(0,0.96fr)_minmax(360px,0.62fr)] lg:gap-10 lg:px-12">
         <motion.div
           variants={staggerContainer}
-          initial={false}
+          initial={reduceMotion ? false : "hidden"}
           animate="visible"
           className="relative z-20 max-w-[690px] pt-7"
         >
@@ -91,35 +97,39 @@ export function Hero() {
           </motion.p>
         </motion.div>
         <motion.aside
-          initial={false}
-          animate={{ opacity: 1, y: 0, scale: 1 }}
+          style={{ y: panelY }}
+          initial={reduceMotion ? false : { opacity: 0, scale: 0.96 }}
+          animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 0.9, delay: 0.48, ease }}
-          className="hero-adventure-panel topo-bg relative z-10 overflow-hidden border border-white/14 bg-[rgba(12,27,23,0.72)] p-4 shadow-[0_28px_80px_rgba(0,0,0,0.28)] backdrop-blur-md"
+          className="hero-adventure-panel relative z-10"
         >
-          <div className="hero-adventure-photo" aria-hidden="true" />
-          <div className="relative z-10 mt-4 grid gap-2.5 sm:grid-cols-3 lg:grid-cols-1">
-            <div className="sm:col-span-3 lg:col-span-1">
+          <motion.div className="hero-adventure-media" aria-hidden="true" style={{ y: mediaY, scale: 1.05 }} />
+          <motion.div className="hero-adventure-content" style={{ y: contentY }}>
+            <div>
               <p className="text-[0.62rem] font-bold uppercase tracking-[0.28em] text-[var(--gold)]">Your Adventure Awaits</p>
-              <h2 className="mt-2 font-serif text-[clamp(2.2rem,8vw,3.6rem)] font-light leading-none text-white lg:text-[2.72rem]">
-                Pick the kind of day you want.
+              <h2 className="mt-2 max-w-[12ch] font-serif text-[clamp(2.35rem,7.4vw,4.2rem)] font-light leading-[0.9] text-white lg:text-[3.95rem]">
+                Choose your trail.
               </h2>
+              <p className="mt-3 max-w-[24rem] text-sm leading-6 text-white/68">
+                Guided rides, lessons, and private celebrations shaped around the pace of your day.
+              </p>
             </div>
-            {heroAdventures.map((adventure) => (
-              <a
-                className="hero-adventure-card group block border border-white/12 bg-white/[0.055] p-3.5 transition-all hover:border-[var(--gold)] hover:bg-white/[0.09] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--gold)]"
-                href="#booking"
-                key={adventure.title}
-              >
-                <span className="flex items-center justify-between gap-3">
+            <div className="hero-adventure-routes" aria-label="Featured experiences">
+              {heroAdventures.map((adventure) => (
+                <a
+                  className="hero-adventure-route group"
+                  href="#booking"
+                  key={adventure.title}
+                >
                   <span>
                     <span className="block font-serif text-2xl font-light leading-none text-white">{adventure.title}</span>
-                    <span className="mt-1 block text-sm text-white/62">{adventure.detail}</span>
+                    <span className="mt-1 block text-sm text-white/64">{adventure.detail}</span>
                   </span>
                   <span className="text-[0.58rem] font-bold uppercase tracking-[0.18em] text-[var(--gold)]">{adventure.meta}</span>
-                </span>
-              </a>
-            ))}
-          </div>
+                </a>
+              ))}
+            </div>
+          </motion.div>
         </motion.aside>
       </div>
       <div className="hero-scroll-indicator" aria-hidden="true" />

@@ -23,6 +23,7 @@ export function BookingBar() {
     experience: 0,
   });
   const [checked, setChecked] = useState(false);
+  const [openKey, setOpenKey] = useState<keyof typeof bookingOptions | null>(null);
 
   const summary = useMemo(
     () =>
@@ -30,11 +31,12 @@ export function BookingBar() {
     [selected],
   );
 
-  const cycleOption = (key: keyof typeof bookingOptions) => {
+  const selectOption = (key: keyof typeof bookingOptions, index: number) => {
     setChecked(false);
+    setOpenKey(null);
     setSelected((current) => ({
       ...current,
-      [key]: (current[key] + 1) % bookingOptions[key].length,
+      [key]: index,
     }));
   };
 
@@ -50,23 +52,46 @@ export function BookingBar() {
       <div className="booking-shell rounded-[1.15rem] border border-white/10 bg-[var(--green)] p-3 text-white shadow-[0_24px_70px_rgba(24,56,45,0.16)] md:p-4">
         <motion.div variants={staggerContainer} initial="hidden" whileInView="visible" viewport={{ once: true }} className="grid gap-3 lg:grid-cols-[1fr_1fr_1fr_auto]">
           {fieldConfig.map(({ key, label }) => (
-            <motion.button
+            <motion.div
               variants={fadeUp}
-              type="button"
-              onClick={() => cycleOption(key)}
-              className="group min-h-20 rounded-[0.8rem] border border-white/14 bg-[#21483a] px-5 text-left shadow-[inset_0_1px_0_rgba(255,255,255,0.07)] transition-all hover:border-[var(--gold)] hover:bg-[#255140] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--gold)]"
+              className="booking-field relative"
               key={label}
             >
-              <span className="block text-[0.6rem] font-bold uppercase tracking-[0.24em] text-white/52">
-                {label}
-              </span>
-              <span className="mt-2 flex items-center justify-between font-serif text-[1.45rem] font-light leading-none text-white">
-                {bookingOptions[key][selected[key]]}
-                <svg className="h-4 w-4 shrink-0 text-[var(--gold)] transition-transform group-hover:translate-y-0.5" viewBox="0 0 16 16" fill="none" aria-hidden="true">
-                  <path d="m4 6 4 4 4-4" stroke="currentColor" strokeWidth="1.4" strokeLinecap="round" strokeLinejoin="round" />
-                </svg>
-              </span>
-            </motion.button>
+              <button
+                type="button"
+                aria-expanded={openKey === key}
+                aria-haspopup="listbox"
+                onClick={() => setOpenKey((current) => (current === key ? null : key))}
+                className="group min-h-20 w-full rounded-[0.8rem] border border-white/14 bg-[#21483a] px-5 text-left shadow-[inset_0_1px_0_rgba(255,255,255,0.07)] transition-all hover:border-[var(--gold)] hover:bg-[#255140] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--gold)]"
+              >
+                <span className="block text-[0.6rem] font-bold uppercase tracking-[0.24em] text-white/52">
+                  {label}
+                </span>
+                <span className="mt-2 flex items-center justify-between gap-4 font-serif text-[1.45rem] font-light leading-none text-white">
+                  {bookingOptions[key][selected[key]]}
+                  <svg className={`h-4 w-4 shrink-0 text-[var(--gold)] transition-transform ${openKey === key ? "rotate-180" : "group-hover:translate-y-0.5"}`} viewBox="0 0 16 16" fill="none" aria-hidden="true">
+                    <path d="m4 6 4 4 4-4" stroke="currentColor" strokeWidth="1.4" strokeLinecap="round" strokeLinejoin="round" />
+                  </svg>
+                </span>
+              </button>
+              {openKey === key && (
+                <div className="booking-dropdown" role="listbox" aria-label={label}>
+                  {bookingOptions[key].map((option, index) => (
+                    <button
+                      className={`booking-dropdown-option ${selected[key] === index ? "is-selected" : ""}`}
+                      key={option}
+                      onClick={() => selectOption(key, index)}
+                      role="option"
+                      aria-selected={selected[key] === index}
+                      type="button"
+                    >
+                      <span>{option}</span>
+                      {selected[key] === index && <span className="text-[var(--gold)]">Selected</span>}
+                    </button>
+                  ))}
+                </div>
+              )}
+            </motion.div>
           ))}
           <motion.button
             variants={fadeUp}
