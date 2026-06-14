@@ -54,7 +54,7 @@ export function Hero() {
         animated={false}
       />
       <AnimatedMountainLines
-        className="hero-landscape hero-landscape-echo hero-lines-calm absolute left-1/2 top-[14%] z-[2] h-[74%] w-[118vw] max-w-none -translate-x-1/2"
+        className="hero-landscape hero-landscape-echo hero-lines-calm absolute left-1/2 top-[12%] z-[2] h-[76%] w-[124vw] max-w-none -translate-x-1/2"
         style={{ y: mountainY }}
         animated={false}
       />
