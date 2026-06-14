@@ -240,32 +240,20 @@ header {
   opacity: 0.5;
 }
 
-.hero-route-strip {
-  display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
-  max-width: 720px;
-  border-top: 1px solid rgba(255, 247, 234, 0.2);
-  border-bottom: 1px solid rgba(255, 247, 234, 0.14);
-  background: linear-gradient(90deg, rgba(255, 247, 234, 0.045), transparent);
-}
-
-.hero-route-link {
-  display: grid;
-  gap: 0.35rem;
-  min-height: 5rem;
-  align-content: center;
-  border-right: 1px solid rgba(255, 247, 234, 0.12);
-  padding: 1rem 1.1rem;
-  transition: background 0.25s ease, transform 0.25s ease;
-}
-
-.hero-route-link:last-child {
-  border-right: 0;
-}
-
-.hero-route-link:hover {
-  background: rgba(255, 247, 234, 0.055);
-  transform: translateY(-2px);
+.hero-horse-line-art {
+  position: absolute;
+  right: max(2rem, 8vw);
+  top: 16%;
+  z-index: 5;
+  width: min(42vw, 34rem);
+  height: auto;
+  color: rgba(236, 225, 198, 0.68);
+  filter:
+    drop-shadow(0 0 18px rgba(210, 177, 99, 0.1))
+    drop-shadow(0 28px 52px rgba(0, 0, 0, 0.18));
+  mix-blend-mode: screen;
+  opacity: 0.82;
+  pointer-events: none;
 }
 
 .booking-field {
@@ -721,31 +709,12 @@ main > section::before {
     opacity: 0.72;
   }
 
-  .hero-route-strip {
-    display: flex;
-    gap: 0;
-    margin-top: 1.5rem;
-    margin-right: -1.25rem;
-    overflow-x: auto;
-    scroll-snap-type: x mandatory;
-    scrollbar-width: none;
-  }
-
-  .hero-route-strip::-webkit-scrollbar {
-    display: none;
-  }
-
-  .hero-route-link {
-    flex: 0 0 9.25rem;
-    min-height: 3.75rem;
-    scroll-snap-align: start;
-    border-right: 1px solid rgba(255, 247, 234, 0.12);
-    border-bottom: 0;
-    padding: 0.8rem 0.95rem;
-  }
-
-  .hero-route-link:last-child {
-    border-right: 0;
+  .hero-horse-line-art {
+    right: -7.5rem;
+    top: 21%;
+    width: 25rem;
+    opacity: 0.32;
+    color: rgba(236, 225, 198, 0.78);
   }
 
   .hero-scroll-indicator {

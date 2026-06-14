@@ -26,14 +26,14 @@ export function Navbar() {
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.75, ease }}
     >
-      <nav className="mx-auto flex h-[4.75rem] max-w-[1440px] items-center justify-between px-4 sm:px-5 md:h-20 md:px-8 lg:px-12">
+      <nav className="mx-auto flex h-[4.75rem] max-w-[1440px] items-center justify-between px-4 sm:px-5 md:h-20 md:px-8 lg:px-10 2xl:px-12">
         <motion.div initial={false} animate={{ opacity: 1 }} transition={{ duration: 0.8, delay: 0.15 }}>
           <Logo />
         </motion.div>
-        <div className="hidden items-center gap-5 lg:flex xl:gap-7">
+        <div className="hidden items-center gap-4 xl:flex 2xl:gap-7">
           {navLinks.map((link) => (
             <a
-              className="text-[0.58rem] font-bold uppercase tracking-[0.14em] text-[var(--text)] transition-colors hover:text-[var(--gold)] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[var(--gold)] xl:text-[0.62rem]"
+              className="text-[0.56rem] font-bold uppercase tracking-[0.12em] text-[var(--text)] transition-colors hover:text-[var(--gold)] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[var(--gold)] 2xl:text-[0.62rem] 2xl:tracking-[0.14em]"
               href={`#${link.toLowerCase().replaceAll(" ", "-").replaceAll("&", "and")}`}
               key={link}
             >
@@ -42,14 +42,14 @@ export function Navbar() {
           ))}
         </div>
         <div className="flex items-center gap-4">
-          <button className="hidden min-h-11 whitespace-nowrap border border-[var(--gold)] px-6 text-[0.62rem] font-bold uppercase tracking-[0.2em] text-[var(--gold)] transition-all hover:bg-[var(--gold)] hover:text-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[var(--gold)] md:block xl:px-7">
+          <button className="hidden min-h-11 whitespace-nowrap border border-[var(--gold)] px-5 text-[0.6rem] font-bold uppercase tracking-[0.18em] text-[var(--gold)] transition-all hover:bg-[var(--gold)] hover:text-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[var(--gold)] md:block 2xl:px-7 2xl:text-[0.62rem]">
             Book Now
           </button>
           <button
             aria-label={open ? "Close menu" : "Open menu"}
             aria-expanded={open}
             onClick={() => setOpen((value) => !value)}
-            className="group flex h-11 w-11 shrink-0 items-center justify-center border border-[var(--border)] bg-[var(--card)] transition-colors hover:border-[var(--gold)] lg:hidden"
+            className="group flex h-11 w-11 shrink-0 items-center justify-center border border-[var(--border)] bg-[var(--card)] transition-colors hover:border-[var(--gold)] xl:hidden"
           >
             <span className="relative h-4 w-6">
               <span className={`absolute left-0 top-0 h-px w-6 bg-[var(--text)] transition-transform ${open ? "translate-y-2 rotate-45" : ""}`} />
@@ -62,7 +62,7 @@ export function Navbar() {
       <AnimatePresence>
         {open && (
           <motion.div
-            className="fixed inset-x-0 top-[4.75rem] z-40 border-b border-[var(--border)] bg-[var(--bg)] px-6 pb-8 pt-5 shadow-[0_28px_70px_rgba(23,23,23,0.08)] md:top-20 lg:hidden"
+            className="fixed inset-x-0 top-[4.75rem] z-40 border-b border-[var(--border)] bg-[var(--bg)] px-6 pb-8 pt-5 shadow-[0_28px_70px_rgba(23,23,23,0.08)] md:top-20 xl:hidden"
             initial={{ opacity: 0, y: -12 }}
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -12 }}
