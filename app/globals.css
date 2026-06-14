@@ -707,22 +707,28 @@ main > section::before {
   }
 
   .hero-section {
-    min-height: auto;
-    padding-bottom: 2.25rem;
+    min-height: 100svh;
+    padding-bottom: max(3rem, env(safe-area-inset-bottom));
     padding-top: 5.8rem;
+    background:
+      radial-gradient(circle at 76% 12%, rgba(236, 225, 198, 0.3), transparent 13rem),
+      radial-gradient(circle at 88% 30%, rgba(210, 177, 99, 0.18), transparent 14rem),
+      radial-gradient(circle at 12% 88%, rgba(101, 151, 120, 0.18), transparent 17rem),
+      linear-gradient(180deg, #263d35 0%, #344d42 48%, #162c25 100%);
   }
 
   .hero-inner {
-    min-height: auto !important;
-    padding-top: 1.2rem;
+    min-height: calc(100svh - 5.8rem) !important;
+    align-items: center;
+    padding-top: 0.4rem;
   }
 
   .hero-landscape {
-    top: 10%;
+    top: 4%;
     left: 50%;
     width: 220vw;
     height: 82%;
-    opacity: 0.34;
+    opacity: 0.42;
   }
 
   .hero-landscape-echo {
@@ -737,29 +743,24 @@ main > section::before {
   }
 
   .hero-photo-backdrop {
-    opacity: 0.72;
+    opacity: 0.86;
     background-position: 52% 48%;
-  }
-
-  .hero-section {
-    background:
-      radial-gradient(circle at 82% 22%, rgba(236, 225, 198, 0.18), transparent 16rem),
-      radial-gradient(circle at 78% 12%, rgba(210, 177, 99, 0.14), transparent 15rem),
-      linear-gradient(180deg, #2b4138 0%, #3d5448 62%, #293c34 100%);
   }
 
   .hero-section::before {
     background:
-      radial-gradient(ellipse at 86% 20%, rgba(236, 225, 198, 0.18), transparent 13rem),
-      linear-gradient(135deg, transparent 0 36%, rgba(210, 177, 99, 0.08) 48%, transparent 66%);
-    opacity: 0.52;
+      radial-gradient(ellipse at 78% 16%, rgba(255, 247, 234, 0.28), transparent 12rem),
+      radial-gradient(ellipse at 70% 38%, rgba(210, 177, 99, 0.14), transparent 16rem),
+      linear-gradient(135deg, transparent 0 26%, rgba(210, 177, 99, 0.12) 44%, transparent 68%);
+    opacity: 0.72;
   }
 
   .hero-section::after {
     background:
-      linear-gradient(180deg, rgba(18, 32, 28, 0.6) 0%, rgba(18, 32, 28, 0.34) 42%, rgba(18, 32, 28, 0.12) 100%),
-      linear-gradient(90deg, rgba(14, 27, 24, 0.78) 0%, rgba(14, 27, 24, 0.42) 58%, rgba(14, 27, 24, 0.18) 100%),
-      radial-gradient(ellipse at 34% 42%, rgba(20, 35, 30, 0.32), transparent 22rem);
+      linear-gradient(180deg, rgba(10, 22, 18, 0.1) 0%, rgba(10, 22, 18, 0.18) 26%, rgba(10, 22, 18, 0.72) 68%, rgba(10, 22, 18, 0.82) 100%),
+      linear-gradient(90deg, rgba(9, 20, 17, 0.88) 0%, rgba(9, 20, 17, 0.52) 58%, rgba(9, 20, 17, 0.18) 100%),
+      radial-gradient(ellipse at 68% 18%, rgba(236, 225, 198, 0.12), transparent 12rem),
+      radial-gradient(ellipse at 28% 48%, rgba(20, 35, 30, 0.36), transparent 20rem);
   }
 
   .hero-mist-layer {
@@ -769,27 +770,24 @@ main > section::before {
   }
 
   .hero-horse-feature {
-    top: 4.65rem;
-    right: -1.75rem;
+    top: 4.5rem;
+    right: -8.8rem;
     bottom: auto;
-    left: auto;
-    width: 27.5rem;
-    height: 19.75rem;
-    opacity: 0.62;
-    -webkit-mask-image:
-      linear-gradient(90deg, transparent 0%, rgba(0, 0, 0, 0.86) 14%, #000 54%, rgba(0, 0, 0, 0.86) 100%),
-      linear-gradient(180deg, transparent 0%, #000 15%, #000 82%, transparent 100%);
-    mask-image:
-      linear-gradient(90deg, transparent 0%, rgba(0, 0, 0, 0.86) 14%, #000 54%, rgba(0, 0, 0, 0.86) 100%),
-      linear-gradient(180deg, transparent 0%, #000 15%, #000 82%, transparent 100%);
+    left: -3.4rem;
+    width: auto;
+    height: 32rem;
+    opacity: 0.9;
+    transform: none !important;
+    -webkit-mask-image: none;
+    mask-image: none;
   }
 
   .hero-horse-feature-image {
-    opacity: 0.9;
+    opacity: 1;
   }
 
   .hero-horse-feature-asset {
-    object-position: 96% 46%;
+    object-position: 78% 43%;
   }
 
   .hero-scroll-indicator {
