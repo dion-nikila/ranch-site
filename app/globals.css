@@ -30,7 +30,8 @@ body {
   background:
     radial-gradient(circle at 12% 4%, rgba(212, 170, 85, 0.18), transparent 28rem),
     radial-gradient(circle at 86% 16%, rgba(97, 147, 116, 0.24), transparent 32rem),
-    linear-gradient(180deg, #263a33 0%, #3a4d43 46%, #24362f 100%);
+    radial-gradient(circle at 26% 62%, rgba(236, 225, 198, 0.07), transparent 42rem),
+    linear-gradient(180deg, #263a33 0%, #162c25 31rem, #324a40 88rem, #20342d 150rem, #14241f 100%);
   color: var(--text);
   font-family: var(--font-sans), ui-sans-serif, system-ui, sans-serif;
   -webkit-font-smoothing: antialiased;
@@ -588,6 +589,7 @@ header {
 
 main > section {
   position: relative;
+  background-color: transparent !important;
 }
 
 main > section::before {
@@ -595,8 +597,18 @@ main > section::before {
   position: absolute;
   inset: 0 0 auto;
   height: 1px;
-  background: linear-gradient(90deg, transparent, rgba(210, 177, 99, 0.52), transparent);
+  background: linear-gradient(90deg, transparent, rgba(210, 177, 99, 0.24), transparent);
+  opacity: 0.8;
   pointer-events: none;
+}
+
+main {
+  overflow: hidden;
+  background:
+    radial-gradient(circle at 86% 12%, rgba(236, 225, 198, 0.11), transparent 30rem),
+    radial-gradient(circle at 14% 42%, rgba(101, 151, 120, 0.13), transparent 42rem),
+    radial-gradient(circle at 82% 72%, rgba(210, 177, 99, 0.08), transparent 36rem),
+    linear-gradient(180deg, transparent 0, rgba(15, 31, 27, 0.34) 40rem, rgba(45, 70, 60, 0.34) 88rem, rgba(18, 34, 29, 0.46) 100%);
 }
 
 #experiences,
@@ -604,13 +616,24 @@ main > section::before {
 #boarding,
 #resources,
 #lessons-and-training,
-#journal {
+#journal,
+#the-ranch,
+#camps-and-parties,
+.gallery-section {
   background:
-    linear-gradient(180deg, rgba(47, 71, 62, 0.74), rgba(55, 76, 66, 0.64)) !important;
+    radial-gradient(circle at 18% 8%, rgba(236, 225, 198, 0.075), transparent 26rem),
+    radial-gradient(circle at 82% 82%, rgba(101, 151, 120, 0.09), transparent 30rem),
+    linear-gradient(180deg, rgba(47, 71, 62, 0.2), rgba(47, 71, 62, 0.08)) !important;
 }
 
 #booking {
   background: transparent !important;
+}
+
+footer#contact {
+  background:
+    radial-gradient(circle at 80% 0%, rgba(236, 225, 198, 0.08), transparent 24rem),
+    linear-gradient(180deg, rgba(18, 34, 29, 0.9), rgba(10, 20, 17, 0.96)) !important;
 }
 
 .service-card,
@@ -716,12 +739,6 @@ main > section::before {
   border: 1px solid rgba(255, 247, 234, 0.18);
   border-radius: 0.7rem;
   opacity: 0.6;
-}
-
-.gallery-section {
-  background:
-    radial-gradient(circle at 18% 20%, rgba(236, 225, 198, 0.11), transparent 24rem),
-    linear-gradient(180deg, rgba(63, 88, 74, 0.72), rgba(51, 75, 64, 0.58));
 }
 
 #booking::before {
@@ -915,6 +932,8 @@ main > section::before {
   #resources,
   #lessons-and-training,
   #journal,
+  #the-ranch,
+  #camps-and-parties,
   .gallery-section {
     background:
       radial-gradient(circle at 18% 0%, rgba(236, 225, 198, 0.07), transparent 17rem),
