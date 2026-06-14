@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import { motion, useReducedMotion, useScroll, useTransform } from "motion/react";
 import { useRef } from "react";
 import { AnimatedMountainLines } from "./AnimatedMountainLines";
@@ -13,22 +14,12 @@ export function Hero() {
     target: heroRef,
     offset: ["start start", "end start"],
   });
-  const backdropY = useTransform(scrollYProgress, [0, 1], [0, reduceMotion ? 0 : 42]);
-  const backdropScale = useTransform(scrollYProgress, [0, 1], [1.03, reduceMotion ? 1.03 : 1.08]);
   const mountainY = useTransform(scrollYProgress, [0, 1], [0, reduceMotion ? 0 : -32]);
   const horseY = useTransform(scrollYProgress, [0, 1], [0, reduceMotion ? 0 : -24]);
-  const horseImageY = useTransform(scrollYProgress, [0, 1], [0, reduceMotion ? 0 : 34]);
 
   return (
     <section ref={heroRef} className="hero-section relative min-h-[88svh] overflow-hidden pb-10 pt-24 md:min-h-[92vh] md:pb-20 md:pt-28">
-      <motion.div
-        className="hero-photo-backdrop"
-        aria-hidden="true"
-        initial={false}
-        style={{ y: backdropY, scale: backdropScale }}
-        animate={{ opacity: 1 }}
-        transition={{ duration: 1.4, delay: 0.15, ease }}
-      />
+      <div className="hero-photo-backdrop" aria-hidden="true" />
       <AnimatedMountainLines
         className="hero-landscape hero-landscape-primary hero-lines-calm absolute left-1/2 top-[2%] z-[2] h-[94%] w-[152vw] max-w-none -translate-x-1/2"
         style={{ y: mountainY }}
@@ -50,18 +41,25 @@ export function Hero() {
         className="hero-horse-feature"
         aria-hidden="true"
         style={{ y: horseY }}
-        initial={reduceMotion ? false : { opacity: 0, x: 18 }}
+        initial={false}
         animate={{ opacity: 1, x: 0 }}
         transition={{ duration: 1.05, delay: 0.5, ease }}
       >
-        <motion.div className="hero-horse-feature-image" style={{ y: horseImageY, scale: 1.04 }} />
-        <div className="hero-horse-feature-frame" />
-        <div className="hero-horse-feature-label">Equestrian Signal</div>
+        <div className="hero-horse-feature-image">
+          <Image
+            src="/images/hero-equestrian-contours-2x.webp"
+            alt=""
+            fill
+            priority
+            sizes="100vw"
+            className="hero-horse-feature-asset"
+          />
+        </div>
       </motion.div>
       <div className="hero-inner relative z-10 mx-auto grid min-h-[calc(88svh-6rem)] max-w-[1440px] items-start px-5 pt-9 md:min-h-[calc(92vh-7rem)] md:items-center md:px-8 md:pt-0 lg:px-12">
         <motion.div
           variants={staggerContainer}
-          initial={reduceMotion ? false : "hidden"}
+          initial={false}
           animate="visible"
           className="relative z-20 max-w-[720px] pt-7"
         >
