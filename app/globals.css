@@ -118,10 +118,11 @@ header {
 }
 
 .hero-section {
+  isolation: isolate;
   background:
     radial-gradient(circle at 54% 42%, rgba(236, 225, 198, 0.12), transparent 34rem),
     radial-gradient(circle at 50% 96%, rgba(101, 151, 120, 0.24), transparent 26rem),
-    linear-gradient(180deg, rgba(43, 65, 56, 0.8) 0%, rgba(59, 81, 70, 0.64) 62%, rgba(41, 60, 52, 0.76) 100%);
+    linear-gradient(180deg, #2b4138 0%, #3b5146 62%, #293c34 100%);
 }
 
 .hero-photo-backdrop {
@@ -149,15 +150,24 @@ header {
 }
 
 .hero-landscape-primary {
-  color: rgba(236, 225, 198, 0.98);
-  opacity: 1;
+  color: rgba(236, 225, 198, 0.66);
+  opacity: 0.44;
+  filter:
+    drop-shadow(0 0 18px rgba(210, 177, 99, 0.06))
+    drop-shadow(0 18px 34px rgba(0, 0, 0, 0.1));
 }
 
 .hero-landscape-echo {
-  color: rgba(142, 186, 158, 0.62);
-  opacity: 0.7;
-  filter: drop-shadow(0 0 22px rgba(142, 186, 158, 0.16));
+  color: rgba(132, 179, 153, 0.34);
+  opacity: 0.2;
+  filter: blur(0.7px) drop-shadow(0 0 20px rgba(142, 186, 158, 0.06));
   transform: translateX(-50%) scaleX(-1);
+}
+
+.hero-lines-calm {
+  mix-blend-mode: normal;
+  -webkit-mask-image: linear-gradient(90deg, transparent 0%, transparent 32%, rgba(0, 0, 0, 0.22) 48%, #000 70%, transparent 100%);
+  mask-image: linear-gradient(90deg, transparent 0%, transparent 32%, rgba(0, 0, 0, 0.22) 48%, #000 70%, transparent 100%);
 }
 
 .mountain-line {
@@ -180,6 +190,36 @@ header {
 
 .mountain-line-drift {
   animation: mountainLineDrift 9s cubic-bezier(0.22, 1, 0.36, 1) infinite alternate;
+}
+
+.hero-lines-calm .mountain-line {
+  stroke-dasharray: 34 42;
+  stroke-opacity: 0.72;
+  animation-duration: 14s;
+}
+
+.hero-lines-calm .mountain-line-primary {
+  animation-duration: 16s;
+}
+
+.hero-lines-calm .mountain-line-secondary {
+  animation-duration: 19s;
+}
+
+.hero-lines-calm .mountain-line-tertiary {
+  animation-duration: 22s;
+}
+
+.hero-lines-calm .mountain-line-drift {
+  stroke-opacity: 0.42;
+  opacity: 0.48;
+  animation-duration: 18s;
+}
+
+.hero-lines-calm circle,
+.hero-lines-calm g:not(.mountain-line-drift) {
+  stroke-opacity: 0.48;
+  opacity: 0.5;
 }
 
 .hero-mist-layer {
@@ -529,13 +569,18 @@ main > section::before {
     left: 50%;
     width: 220vw;
     height: 82%;
-    opacity: 1;
+    opacity: 0.34;
   }
 
   .hero-landscape-echo {
     top: 24%;
     width: 166vw;
-    opacity: 0.52;
+    opacity: 0.12;
+  }
+
+  .hero-lines-calm {
+    -webkit-mask-image: linear-gradient(90deg, transparent 0%, transparent 36%, rgba(0, 0, 0, 0.42) 62%, transparent 100%);
+    mask-image: linear-gradient(90deg, transparent 0%, transparent 36%, rgba(0, 0, 0, 0.42) 62%, transparent 100%);
   }
 
   .hero-photo-backdrop {
@@ -547,7 +592,7 @@ main > section::before {
   .hero-section {
     background:
       radial-gradient(circle at 52% 42%, rgba(236, 225, 198, 0.14), transparent 24rem),
-      linear-gradient(180deg, rgba(43, 65, 56, 0.86) 0%, rgba(61, 84, 72, 0.74) 62%, rgba(41, 60, 52, 0.86) 100%);
+      linear-gradient(180deg, #2b4138 0%, #3d5448 62%, #293c34 100%);
   }
 
   .hero-mist-layer {

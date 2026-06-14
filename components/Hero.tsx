@@ -25,11 +25,11 @@ export function Hero() {
         transition={{ duration: 1.4, delay: 0.15, ease }}
       />
       <AnimatedMountainLines
-        className="hero-landscape hero-landscape-primary absolute left-1/2 top-[2%] z-[2] h-[94%] w-[152vw] max-w-none -translate-x-1/2"
+        className="hero-landscape hero-landscape-primary hero-lines-calm absolute left-1/2 top-[2%] z-[2] h-[94%] w-[152vw] max-w-none -translate-x-1/2"
         style={{ y: mountainY }}
       />
       <AnimatedMountainLines
-        className="hero-landscape hero-landscape-echo absolute left-1/2 top-[14%] z-[2] h-[74%] w-[118vw] max-w-none -translate-x-1/2"
+        className="hero-landscape hero-landscape-echo hero-lines-calm absolute left-1/2 top-[14%] z-[2] h-[74%] w-[118vw] max-w-none -translate-x-1/2"
         style={{ y: mountainY }}
       />
       <motion.div
