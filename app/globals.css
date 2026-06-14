@@ -108,6 +108,58 @@ header {
   box-shadow: 0 14px 44px rgba(0, 0, 0, 0.26);
 }
 
+.mobile-menu-button {
+  box-shadow:
+    inset 0 1px 0 rgba(255, 247, 234, 0.08),
+    0 12px 28px rgba(0, 0, 0, 0.16);
+}
+
+.mobile-menu-panel {
+  overflow: hidden;
+  background:
+    radial-gradient(circle at 82% 0%, rgba(236, 225, 198, 0.13), transparent 14rem),
+    radial-gradient(circle at 16% 100%, rgba(101, 151, 120, 0.16), transparent 16rem),
+    linear-gradient(180deg, rgba(31, 52, 44, 0.98), rgba(10, 23, 19, 0.98)) !important;
+  box-shadow:
+    inset 0 1px 0 rgba(255, 247, 234, 0.08),
+    0 28px 80px rgba(0, 0, 0, 0.36) !important;
+}
+
+.mobile-menu-panel::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background:
+    linear-gradient(90deg, rgba(210, 177, 99, 0.12), transparent 28%, transparent 72%, rgba(236, 225, 198, 0.08)),
+    repeating-linear-gradient(0deg, rgba(255, 247, 234, 0.025) 0 1px, transparent 1px 18px);
+}
+
+.mobile-menu-link {
+  position: relative;
+  z-index: 1;
+  border-color: rgba(210, 177, 99, 0.18) !important;
+  color: var(--text);
+  line-height: 0.95;
+  text-shadow: 0 14px 42px rgba(0, 0, 0, 0.28);
+}
+
+.mobile-menu-link::after {
+  content: "";
+  position: absolute;
+  bottom: -1px;
+  left: 0;
+  width: 42%;
+  height: 1px;
+  background: linear-gradient(90deg, rgba(210, 177, 99, 0.62), transparent);
+}
+
+.mobile-menu-cta {
+  position: relative;
+  z-index: 1;
+  box-shadow: 0 16px 38px rgba(0, 0, 0, 0.24);
+}
+
 .site-line-field {
   z-index: 0;
   opacity: 0.22;
@@ -702,6 +754,29 @@ main > section::before {
 }
 
 @media (max-width: 767px) {
+  body {
+    background:
+      radial-gradient(circle at 82% 6%, rgba(236, 225, 198, 0.2), transparent 18rem),
+      radial-gradient(circle at 10% 32%, rgba(101, 151, 120, 0.16), transparent 18rem),
+      radial-gradient(circle at 84% 68%, rgba(210, 177, 99, 0.1), transparent 18rem),
+      linear-gradient(180deg, #263d35 0%, #162c25 28rem, #22372f 64rem, #172a24 100%);
+  }
+
+  main {
+    overflow: hidden;
+    background:
+      linear-gradient(180deg, transparent 0, rgba(22, 44, 37, 0.7) 46rem, rgba(32, 55, 46, 0.54) 100%);
+  }
+
+  main > section {
+    background-color: transparent !important;
+  }
+
+  main > section::before {
+    background: linear-gradient(90deg, transparent, rgba(210, 177, 99, 0.22), transparent);
+    opacity: 0.65;
+  }
+
   .section-title {
     font-size: clamp(2.25rem, 10.5vw, 3.6rem);
   }
@@ -721,6 +796,23 @@ main > section::before {
     min-height: calc(100svh - 5.8rem) !important;
     align-items: center;
     padding-top: 0.4rem;
+  }
+
+  .hero-inner .button-shimmer {
+    background-color: rgba(12, 29, 24, 0.22);
+    backdrop-filter: blur(10px);
+  }
+
+  .hero-inner .button-shimmer:first-child {
+    background-color: var(--gold);
+  }
+
+  .hero-inner .button-shimmer:hover {
+    background-color: rgba(12, 29, 24, 0.38);
+  }
+
+  .hero-inner .button-shimmer:first-child:hover {
+    background-color: #96763d;
   }
 
   .hero-landscape {
@@ -757,7 +849,7 @@ main > section::before {
 
   .hero-section::after {
     background:
-      linear-gradient(180deg, rgba(10, 22, 18, 0.1) 0%, rgba(10, 22, 18, 0.18) 26%, rgba(10, 22, 18, 0.72) 68%, rgba(10, 22, 18, 0.82) 100%),
+      linear-gradient(180deg, rgba(10, 22, 18, 0.1) 0%, rgba(10, 22, 18, 0.18) 26%, rgba(10, 22, 18, 0.72) 68%, rgba(10, 22, 18, 0.72) 88%, rgba(10, 22, 18, 0) 100%),
       linear-gradient(90deg, rgba(9, 20, 17, 0.88) 0%, rgba(9, 20, 17, 0.52) 58%, rgba(9, 20, 17, 0.18) 100%),
       radial-gradient(ellipse at 68% 18%, rgba(236, 225, 198, 0.12), transparent 12rem),
       radial-gradient(ellipse at 28% 48%, rgba(20, 35, 30, 0.36), transparent 20rem);
@@ -801,8 +893,32 @@ main > section::before {
   }
 
   #booking {
-    padding-top: 1.5rem !important;
+    margin-top: -1.4rem;
+    padding-top: 0 !important;
     padding-bottom: 1.75rem !important;
+  }
+
+  #booking .booking-shell {
+    background:
+      linear-gradient(180deg, rgba(255, 247, 234, 0.055), transparent 38%),
+      radial-gradient(circle at 88% 0%, rgba(210, 177, 99, 0.13), transparent 12rem),
+      rgba(18, 39, 32, 0.72) !important;
+    box-shadow:
+      inset 0 1px 0 rgba(255, 247, 234, 0.08),
+      0 20px 52px rgba(0, 0, 0, 0.2);
+    backdrop-filter: blur(12px);
+  }
+
+  #experiences,
+  #trail-rides,
+  #boarding,
+  #resources,
+  #lessons-and-training,
+  #journal,
+  .gallery-section {
+    background:
+      radial-gradient(circle at 18% 0%, rgba(236, 225, 198, 0.07), transparent 17rem),
+      linear-gradient(180deg, rgba(47, 71, 62, 0.18), rgba(47, 71, 62, 0.08)) !important;
   }
 
   #ranch-gallery,

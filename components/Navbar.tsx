@@ -21,7 +21,7 @@ export function Navbar() {
 
   return (
     <motion.header
-      className="fixed left-0 right-0 top-0 z-50 border-b border-[var(--border)] bg-[rgba(250,248,243,0.86)] backdrop-blur-xl"
+      className="site-header fixed left-0 right-0 top-0 z-50 border-b border-[var(--border)] bg-[rgba(250,248,243,0.86)] backdrop-blur-xl"
       initial={false}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.75, ease }}
@@ -49,7 +49,7 @@ export function Navbar() {
             aria-label={open ? "Close menu" : "Open menu"}
             aria-expanded={open}
             onClick={() => setOpen((value) => !value)}
-            className="group flex h-11 w-11 shrink-0 items-center justify-center border border-[var(--border)] bg-[var(--card)] transition-colors hover:border-[var(--gold)] xl:hidden"
+            className="mobile-menu-button group flex h-11 w-11 shrink-0 items-center justify-center border border-[var(--border)] bg-[var(--card)] transition-colors hover:border-[var(--gold)] xl:hidden"
           >
             <span className="relative h-4 w-6">
               <span className={`absolute left-0 top-0 h-px w-6 bg-[var(--text)] transition-transform ${open ? "translate-y-2 rotate-45" : ""}`} />
@@ -62,7 +62,7 @@ export function Navbar() {
       <AnimatePresence>
         {open && (
           <motion.div
-            className="fixed inset-x-0 top-[4.75rem] z-40 border-b border-[var(--border)] bg-[var(--bg)] px-6 pb-8 pt-5 shadow-[0_28px_70px_rgba(23,23,23,0.08)] md:top-20 xl:hidden"
+            className="mobile-menu-panel fixed inset-x-0 top-[4.75rem] z-40 border-b border-[var(--border)] bg-[var(--bg)] px-6 pb-8 pt-5 shadow-[0_28px_70px_rgba(23,23,23,0.08)] md:top-20 xl:hidden"
             initial={{ opacity: 0, y: -12 }}
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -12 }}
@@ -71,7 +71,7 @@ export function Navbar() {
             <div className="grid gap-1">
               {navLinks.map((link) => (
                 <a
-                  className="border-b border-[var(--border)] py-4 font-serif text-3xl text-[var(--text)]"
+                  className="mobile-menu-link border-b border-[var(--border)] py-4 font-serif text-3xl text-[var(--text)]"
                   href={`#${link.toLowerCase().replaceAll(" ", "-").replaceAll("&", "and")}`}
                   key={link}
                   onClick={() => setOpen(false)}
@@ -80,7 +80,7 @@ export function Navbar() {
                 </a>
               ))}
             </div>
-            <button className="mt-6 min-h-12 w-full bg-[var(--gold)] text-[0.72rem] font-bold uppercase tracking-[0.24em] text-white">
+            <button className="mobile-menu-cta mt-6 min-h-12 w-full bg-[var(--gold)] text-[0.72rem] font-bold uppercase tracking-[0.24em] text-white">
               Book Now
             </button>
           </motion.div>
