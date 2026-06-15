@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import { openBookingFlow } from "./BookingFlow";
 import { FineIcon } from "./icons";
 
 const mobileActions = [
@@ -40,7 +41,17 @@ export function MobileStickyBookButton() {
       className={`mobile-action-dock fixed bottom-3 left-3 right-3 z-50 md:hidden ${visible ? "is-visible" : ""}`}
     >
       {mobileActions.map((action) => (
-        <a className="mobile-action-dock-item" href={action.href} key={action.href}>
+        <a
+          className="mobile-action-dock-item"
+          href={action.href}
+          key={action.href}
+          onClick={(event) => {
+            if (action.href === "#booking") {
+              event.preventDefault();
+              openBookingFlow();
+            }
+          }}
+        >
           <span className="mobile-action-dock-icon">
             <FineIcon name={action.icon} className="h-5 w-5" />
           </span>
