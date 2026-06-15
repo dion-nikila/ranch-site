@@ -1,6 +1,7 @@
 "use client";
 
 import { motion } from "motion/react";
+import { openBookingFlow } from "./BookingFlow";
 import { Button } from "./Button";
 import { ease } from "./motion";
 
@@ -22,7 +23,7 @@ export function FinalCTA() {
         <p className="mx-auto mt-5 max-w-2xl text-lg leading-8 text-white/72">
           Book a ride, plan a party, schedule a lesson, or spend the day at the ranch.
         </p>
-        <Button className="mt-9">Book Your Experience</Button>
+        <Button className="mt-9" onClick={() => openBookingFlow()}>Book Your Experience</Button>
       </motion.div>
     </section>
   );

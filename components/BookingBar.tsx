@@ -2,14 +2,19 @@
 
 import { motion } from "motion/react";
 import { useMemo, useState } from "react";
+import { BookingFlowSeed, openBookingFlow } from "./BookingFlow";
 import { FineIcon } from "./icons";
 import { ease, fadeUp, staggerContainer } from "./motion";
 
 const bookingOptions = {
-  date: ["This Saturday", "Next Friday", "June 28", "Custom Date"],
+  date: ["This Saturday", "Next Friday", "June 28", "Next Monday"],
   guests: ["2 Riders", "4 Riders", "Family Group", "Party Crew"],
-  experience: ["Trail Ride", "Riding Lesson", "Pony Party", "Summer Camp"],
+  experience: ["Trail Ride", "Riding Lesson", "Birthday Party", "Summer Camp"],
 };
+
+const dateSeeds = ["Saturday, June 20", "Friday, June 26", "Sunday, June 28", "Monday, June 29"];
+const guestSeeds = [2, 4, 5, 10];
+const serviceSeeds: BookingFlowSeed["serviceId"][] = ["trail", "lesson", "party", "camp"];
 
 const fieldConfig = [
   { key: "date", label: "Date", icon: "calendar" },
@@ -41,16 +46,26 @@ export function BookingBar() {
     }));
   };
 
+  const checkAvailability = () => {
+    setChecked(true);
+    openBookingFlow({
+      serviceId: serviceSeeds[selected.experience],
+      riderCount: guestSeeds[selected.guests],
+      selectedDate: dateSeeds[selected.date],
+      step: 2,
+    });
+  };
+
   return (
     <motion.section
       id="booking"
-      className="relative z-20 mx-auto max-w-[1280px] px-5 py-8 md:-mt-5 md:px-8 md:py-10"
+      className="relative z-20 w-full px-4 py-8 md:-mt-5 md:px-0 md:py-10"
       initial={{ opacity: 0, y: 32 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, amount: 0.4 }}
       transition={{ duration: 0.7, ease }}
     >
-      <div className="booking-shell rounded-[1.25rem] border border-white/10 p-3 text-white md:p-4">
+      <div className="booking-shell rounded-[1.25rem] border border-white/10 p-3 text-white md:p-5 lg:p-6">
         <div className="booking-shell-header">
           <div>
             <span className="booking-shell-kicker">Check Availability</span>
@@ -58,11 +73,11 @@ export function BookingBar() {
           </div>
           <span aria-hidden="true">Private rides • gentle horses</span>
         </div>
-        <motion.div variants={staggerContainer} initial="hidden" whileInView="visible" viewport={{ once: true }} className="booking-grid grid gap-3 lg:grid-cols-[1fr_1fr_1.08fr_auto]">
+        <motion.div variants={staggerContainer} initial="hidden" whileInView="visible" viewport={{ once: true }} className="booking-grid grid gap-3 lg:grid-cols-[minmax(0,1fr)_minmax(0,1fr)_minmax(0,1.08fr)_minmax(12.5rem,auto)]">
           {fieldConfig.map(({ key, label, icon }) => (
             <motion.div
               variants={fadeUp}
-              className="booking-field relative"
+              className="booking-field relative min-w-0"
               key={label}
             >
               <button
@@ -107,7 +122,7 @@ export function BookingBar() {
           <motion.button
             variants={fadeUp}
             type="button"
-            onClick={() => setChecked(true)}
+            onClick={checkAvailability}
             className="booking-check-button button-shimmer focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white"
           >
             <span>{checked ? "Time Found" : "Check Availability"}</span>

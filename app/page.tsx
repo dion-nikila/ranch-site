@@ -1,4 +1,5 @@
 import { BookingBar } from "@/components/BookingBar";
+import { BookingFlow } from "@/components/BookingFlow";
 import { BoardingSection } from "@/components/BoardingSection";
 import { FinalCTA } from "@/components/FinalCTA";
 import { Footer } from "@/components/Footer";
@@ -36,6 +37,7 @@ export default function Home() {
       </main>
       <Footer />
       <MobileStickyBookButton />
+      <BookingFlow />
     </>
   );
 }

@@ -4,6 +4,7 @@ import Image from "next/image";
 import { motion, useReducedMotion, useScroll, useTransform } from "motion/react";
 import { useRef } from "react";
 import { AnimatedMountainLines } from "./AnimatedMountainLines";
+import { openBookingFlow } from "./BookingFlow";
 import { Button } from "./Button";
 import { fadeUp, staggerContainer, ease } from "./motion";
 
@@ -80,7 +81,7 @@ export function Hero() {
             A private ranch experience where trail rides, lessons, boarding, camps, and celebrations come together with quiet hospitality.
           </motion.p>
           <motion.div variants={fadeUp} className="mt-9 grid gap-3 sm:flex">
-            <Button>Book a Ride</Button>
+            <Button onClick={() => openBookingFlow()}>Book a Ride</Button>
             <Button variant="outlineDark">View Pricing & Packages</Button>
           </motion.div>
           <motion.p variants={fadeUp} className="mt-6 text-sm text-[var(--muted)]">
